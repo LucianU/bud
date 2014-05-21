@@ -1,0 +1,21 @@
+# Python bytecode:
+*.py[co]
+
+# Packaging files:
+*.egg*
+
+# Editor temp files:
+*.swp
+*~
+
+# Local settings file:
+{{ project_name }}/settings/local.py
+
+# Sphinx docs:
+build
+
+# SQLite3 database files:
+*.db
+
+# Celerybeat scheduler file:
+celerybeat-schedule
