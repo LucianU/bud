@@ -1,4 +1,4 @@
-from {{ project_name }}.settings.common import *
+from {{ repo_name }}.settings.common import *
 
 
 MIDDLEWARE_CLASSES += (
@@ -14,6 +14,6 @@ INTERNAL_IPS = (
 )
 
 try:
-    from {{ project_name }}.settings.local import *
+    from {{ repo_name }}.settings.local import *
 except ImportError:
     pass

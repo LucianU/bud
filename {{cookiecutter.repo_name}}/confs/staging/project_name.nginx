@@ -1,8 +1,8 @@
 server {
     listen 80;
-    server_name staging.project_name.com;
-    access_log /var/log/nginx/staging.project_name.access.log;
-    error_log /var/log/nginx/staging.project_name.error.log;
+    server_name staging.repo_name.com;
+    access_log /var/log/nginx/staging.repo_name.access.log;
+    error_log /var/log/nginx/staging.repo_name.error.log;
 
     client_max_body_size 20M;
 
