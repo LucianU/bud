@@ -8,7 +8,7 @@ from fabric.api import env, local, run, task
 
 env.run = run
 env.repo = '/URL/OF/THE/PROJECT/REPO/'
-env.virtualenv = 'workon {{ project_name }}'
+env.virtualenv = 'workon {{ repo_name }}'
 env.forward_agent = True
 
 
@@ -22,7 +22,7 @@ def here():
     env.branch = 'master'
     env.confs = 'confs/staging/'
     env.requirements = 'requirements/staging.pip'
-    env.settings = '{{ project_name }}.settings.staging'
+    env.settings = '{{ repo_name }}.settings.staging'
 
 
 @task
@@ -35,7 +35,7 @@ def stag():
     env.branch = 'staging'
     env.confs = 'confs/staging/'
     env.requirements = 'requirements/staging.pip'
-    env.settings = '{{ project_name }}.settings.staging'
+    env.settings = '{{ repo_name }}.settings.staging'
 
 
 @task
@@ -48,4 +48,4 @@ def prod():
     env.branch = 'master'
     env.confs = 'confs/production/'
     env.requirements = 'requirements/production.pip'
-    env.settings = '{{ project_name }}.settings.production'
+    env.settings = '{{ repo_name }}.settings.production'
