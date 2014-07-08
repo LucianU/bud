@@ -1,4 +1,4 @@
-bud
-===
+{{ repo_name }}
+===============
 
-A project template for Django
+A Django site.
