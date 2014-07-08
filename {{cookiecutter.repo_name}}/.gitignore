@@ -19,3 +19,6 @@ build
 
 # Celerybeat scheduler file:
 celerybeat-schedule
+
+# Vagrant directory
+.vagrant
