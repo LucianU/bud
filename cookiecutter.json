@@ -1,3 +1,10 @@
 {
-    "repo_name":
+    "repo_name": null,
+    "repo_url": null,
+    "repo_host": "bitbucket.org",
+    "webapps_root": "/var/www",
+    "domain_name": null,
+    "_copy_without_render": [
+        "*deployment"
+    ]
 }
