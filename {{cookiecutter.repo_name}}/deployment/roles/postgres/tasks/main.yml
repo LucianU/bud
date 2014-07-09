@@ -1,0 +1,32 @@
+---
+- name: add Debian repo
+  apt_repository: repo="deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" state=present
+  sudo: yes
+
+- name: add repo key
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc state=present
+  sudo: yes
+
+- name: install PostgreSQL
+  apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
+  with_items:
+    - postgresql-9.3
+    - postgresql-server-dev-9.3
+  sudo: yes
+  tags: packages
+
+- name: start PostgreSQL
+  service: name=postgresql state=started enabled=yes
+  sudo: yes
+
+- name: create database role
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: name={{ postgres_db_user }}
+                   role_attr_flags=NOSUPERUSER,NOCREATEDB
+                   state=present
+
+- name: create database
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db: db={{ postgres_db_name }} owner={{ postgres_db_user}} state=present

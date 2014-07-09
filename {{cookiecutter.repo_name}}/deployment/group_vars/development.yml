@@ -1,0 +1,25 @@
+---
+
+ENV: development
+
+update_apt_cache: yes
+django_settings_file: "{{ repo_name }}.settings.development"
+pip_requirements_file: "{{ repo_root }}/requirements/development.pip"
+remote_user: vagrant
+
+# nginx settings
+nginx_server_name: "{{ repo_name }}.dev"
+nginx_access_log: "{{ repo_name }}.access.log"
+nginx_error_log: "{{ repo_name }}.error.log"
+nginx_static_path: "{{ repo_root }}/{{ repo_name }}/static_all"
+
+# postgres settings
+postgres_db_name: "{{ repo_name }}"
+postgres_db_user: "{{ postgres_db_name }}"
+
+# uwsgi settings
+uwsgi_socket: "{{ project_run_path }}/uwsgi.sock"
+uwsgi_logto: "{{ project_log_path }}/uwsgi.log"
+uwsgi_django_settings: "{{ django_settings_file }}"
+uwsgi_module: "{{ repo_name }}.wsgi"
+uwsgi_venv: "{{ project_venv_path }}"

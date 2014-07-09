@@ -1,0 +1,29 @@
+---
+
+ENV: production
+
+update_apt_cache: yes
+temp_dir: /tmp/{{ repo_name }}
+pip_requirements_file: "{{ temp_dir }}/requirements/production.pip"
+
+# memcached settings
+memcached_max_memory_mb: 128
+
+# nginx settings
+nginx_server_name: "{{ domain_name }}"
+nginx_access_log: "{{ repo_name }}.access.log"
+nginx_error_log: "{{ repo_name }}.error.log"
+nginx_static_path: "{{ repo_root }}/{{ repo_name }}/static_all"
+
+
+# postgres settings
+
+
+# supervisor settings
+
+# uwsgi settings
+uwsgi_socket: "{{ project_run_path }}/uwsgi.sock"
+uwsgi_logto: "{{ project_log_path }}/uwsgi.log"
+uwsgi_django_settings: "{{ repo_name }}.settings.production"
+uwsgi_module: "{{ repo_name }}.wsgi"
+uwsgi_venv: "{{ project_venv_path }}"

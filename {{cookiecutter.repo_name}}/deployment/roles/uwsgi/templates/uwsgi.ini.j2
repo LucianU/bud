@@ -1,0 +1,18 @@
+[uwsgi]
+socket = {{ uwsgi_socket }}
+master = true
+processes = 4
+max-requests = 1000
+harakiri = 30
+post-buffering = 8192
+logto = {{ uwsgi_logto }}
+reaper = true
+disable-logging = false
+chmod-socket = 666
+env = DJANGO_SETTINGS_MODULE={{ uwsgi_django_settings }}
+module = {{ uwsgi_module }}
+venv = {{ uwsgi_venv }}
+uid = {{ repo_name }}
+; Repo root
+pythonpath = {{ repo_root }}
+pythonpath = {{ repo_root }}/{{ repo_name }}/apps

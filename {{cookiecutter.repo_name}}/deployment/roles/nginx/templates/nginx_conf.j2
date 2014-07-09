@@ -1,0 +1,25 @@
+{# We display this section only for the production config file #}
+{% if ENV == "production" %}
+server {
+    server_name {{ domain_name }};
+    return 301 $scheme://{{ nginx_server_name }}$request_uri;
+}
+{% endif %}
+
+server {
+    listen {{ nginx_http_port }};
+    server_name {{ nginx_server_name }};
+    access_log /var/log/nginx/{{ nginx_access_log }};
+    error_log /var/log/nginx/{{ nginx_error_log }};
+
+    client_max_body_size 20M;
+
+    location / {
+        uwsgi_pass unix://{{ uwsgi_socket }};
+        include uwsgi_params;
+    }
+
+    location /static {
+        alias {{ nginx_static_path }};
+    }
+}

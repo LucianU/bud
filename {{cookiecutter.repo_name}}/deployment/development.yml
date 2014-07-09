@@ -1,0 +1,14 @@
+---
+- hosts: development
+  gather_facts: false
+  roles:
+    - common
+    - memcached
+    - nginx
+    - postgres
+    - virtualenv
+    - site
+    - uwsgi
+    - supervisor
+  vars_files:
+    - ../project_vars.yml

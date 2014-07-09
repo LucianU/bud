@@ -1,0 +1,8 @@
+---
+- name: install virtualenv
+  pip: name=virtualenv version=1.11.6
+  sudo: yes
+
+- name: create virtualenvs directory
+  file: path={{ virtualenvs_path }} state=directory
+  sudo: yes

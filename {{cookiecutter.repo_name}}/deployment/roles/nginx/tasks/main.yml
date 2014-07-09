@@ -1,0 +1,32 @@
+---
+- name: add PPA
+  apt_repository: repo="ppa:nginx/development" state=present
+  sudo: yes
+
+- name: install nginx
+  apt: name=nginx=1.7.1-1+precise0 update_cache={{ update_apt_cache }} state=installed
+  sudo: yes
+  tags: packages
+
+- name: create the nginx configuration file
+  template: src=nginx_conf.j2
+            dest=/etc/nginx/sites-available/{{ repo_name }}
+            backup=yes
+  sudo: yes
+  notify:
+    - reload nginx
+
+- name: disable default site
+  command: rm /etc/nginx/sites-enabled/default
+           removes=/etc/nginx/sites-enabled/default
+  sudo: yes
+  notify:
+    - reload nginx
+
+- name: enable application site
+  command: ln -s /etc/nginx/sites-available/{{ repo_name }}
+           /etc/nginx/sites-enabled/{{ repo_name }}
+           creates=/etc/nginx/sites-enabled/{{ repo_name }}
+  sudo: yes
+  notify:
+    - reload nginx

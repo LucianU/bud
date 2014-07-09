@@ -1,0 +1,33 @@
+---
+- name: install supervisor
+  pip: name=supervisor version=3.0 virtualenv={{ project_venv_path }}
+  sudo: yes
+
+- name: create config dir
+  file: path={{ supervisor_config_file | dirname }} state=directory
+        owner={{ repo_name }} group={{ repo_name }}
+  sudo: yes
+
+- name: generate config file
+  template: src=supervisor.conf.j2
+            dest={{ supervisor_config_file }}
+  notify:
+    - reload supervisord
+  sudo: yes
+  sudo_user: "{{ repo_name }}"
+
+- name: generate upstart file
+  template: src=supervisord.upstart.j2
+            dest=/etc/init.d/{{ supervisor_service_name }}
+            mode=0755
+  notify:
+    - restart supervisord
+  sudo: yes
+
+- name: register upstart file
+  service: name={{ supervisor_service_name }} enabled=yes
+  sudo: yes
+
+- name: start supervisor
+  service: name={{ supervisor_service_name }} state=started
+  sudo: yes

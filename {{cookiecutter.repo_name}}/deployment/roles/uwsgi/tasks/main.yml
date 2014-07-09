@@ -1,0 +1,15 @@
+---
+- name: install uwsgi
+  pip: name=uwsgi version=2.0.5.1 virtualenv={{ project_venv_path }}
+  sudo: yes
+
+- name: create config dir
+  file: path={{ uwsgi_config_file | dirname }} state=directory
+        owner={{ repo_name }} group={{ repo_name }}
+  sudo: yes
+
+- name: generate config file
+  template: src=uwsgi.ini.j2
+            dest={{ uwsgi_config_file }}
+  sudo: yes
+  sudo_user: "{{ repo_name }}"
