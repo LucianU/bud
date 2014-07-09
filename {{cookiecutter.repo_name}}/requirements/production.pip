@@ -1,6 +1,5 @@
 -r common.pip
 
-pylibmc==1.2.3
 raven==3.5.0
 supervisor==3.0
 uwsgi==1.9.17.1

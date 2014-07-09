@@ -4,6 +4,7 @@ fabric==1.8.0
 mock==1.0.1
 psycopg2==2.5.1
 pillow==2.2.1
+pylibmc==1.2.3
 
 # Django apps
 django-compressor==1.3
