@@ -2,6 +2,7 @@
     "repo_name": null,
     "repo_url": null,
     "repo_host": "bitbucket.org",
+    "ssh_private_key_path": "~/.ssh/id_rsa",
     "webapps_root": "/var/www",
     "domain_name": null,
     "_copy_without_render": [
