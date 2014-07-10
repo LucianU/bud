@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Shared folder from the host machine to the guest machine. Uncomment the line
   # below to enable it.
   config.vm.synced_folder "../{{cookiecutter.repo_name}}", "/var/www/{{cookiecutter.repo_name}}"
-  config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.ssh.private_key_path = ["~/.vagrant.d/insecure_private_key", "{{cookiecutter.ssh_private_key_path}}"]
   config.ssh.forward_agent = true
 
   # Ansible provisioner.
