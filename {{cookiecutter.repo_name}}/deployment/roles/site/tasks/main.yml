@@ -19,12 +19,6 @@
   synchronize: src={{ repo_name }} dest={{ repo_root }}
   when: ENV != "development"
 
-# Why is this needed?
-- name: add project user to remote user's group
-  user: name={{ repo_name }} groups={{ remote_user }}
-  sudo: yes
-  when: ENV == "development"
-
 - name: run syncdb, migrate and collectstatic commands
   django_manage: command={{ item }} app_path={{ repo_root }}
                  settings={{ django_settings_file }}
