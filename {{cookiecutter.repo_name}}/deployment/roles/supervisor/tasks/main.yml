@@ -14,7 +14,6 @@
   notify:
     - restart supervisord
   sudo: yes
-  sudo_user: "{{ repo_name }}"
 
 - name: generate upstart file
   template: src=supervisord.upstart.j2
@@ -28,6 +27,6 @@
   service: name={{ supervisor_service_name }} enabled=yes
   sudo: yes
 
-- name: start supervisor
+- name: start supervisord
   service: name={{ supervisor_service_name }} state=started
   sudo: yes
