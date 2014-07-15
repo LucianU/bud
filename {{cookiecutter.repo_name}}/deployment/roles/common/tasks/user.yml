@@ -3,10 +3,6 @@
   user: name={{ app_user }} home={{ repo_root }} state=present
   sudo: yes
 
-- name: create application group
-  group: name={{ repo_name }} state=present
-  sudo: yes
-
 - name: add user to group
   user: name={{ app_user }} group={{ app_group }} groups=www-data
         state=present
