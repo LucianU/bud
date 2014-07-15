@@ -9,7 +9,6 @@
   sudo: yes
 
 - name: generate config file
-  template: src=uwsgi.ini.j2
-            dest={{ uwsgi_config_file }}
+  template: src=uwsgi.ini.j2 dest={{ uwsgi_config_file }}
+            owner={{ repo_name }} group={{ repo_name }}
   sudo: yes
-  sudo_user: "{{ repo_name }}"
