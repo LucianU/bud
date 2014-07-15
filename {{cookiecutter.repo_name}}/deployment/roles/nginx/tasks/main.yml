@@ -14,14 +14,14 @@
             backup=yes
   sudo: yes
   notify:
-    - reload nginx
+    - restart nginx
 
 - name: disable default site
   command: rm /etc/nginx/sites-enabled/default
            removes=/etc/nginx/sites-enabled/default
   sudo: yes
   notify:
-    - reload nginx
+    - restart nginx
 
 - name: enable application site
   command: ln -s /etc/nginx/sites-available/{{ repo_name }}
@@ -29,4 +29,4 @@
            creates=/etc/nginx/sites-enabled/{{ repo_name }}
   sudo: yes
   notify:
-    - reload nginx
+    - restart nginx
