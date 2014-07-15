@@ -9,8 +9,8 @@
   sudo: yes
 
 - name: generate config file
-  template: src=supervisor.conf.j2
-            dest={{ supervisor_config_file }}
+  template: src=supervisor.conf.j2 dest={{ supervisor_config_file }}
+            owner={{ repo_name }} group={{ repo_name }}
   notify:
     - reload supervisord
   sudo: yes
