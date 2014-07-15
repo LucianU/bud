@@ -4,6 +4,9 @@ repo_root: "{{ cookiecutter.webapps_root }}/{{ repo_name }}"
 repo_url: "{{ cookiecutter.repo_url }}"
 repo_host: "{{ cookiecutter.repo_host }}"
 
+app_user: "{% raw %}{{ repo_name }}{% endraw %}"
+app_group: "{% raw %}{{ app_user }}{% endraw %}"
+
 domain_name: "{{ cookiecutter.domain_name }}"
 virtualenvs_path: "{% raw %}{{ repo_root | dirname }}/.virtualenvs{% endraw %}"
 project_venv_path: "{% raw %}{{ virtualenvs_path }}/{{ repo_name }}{% endraw %}"

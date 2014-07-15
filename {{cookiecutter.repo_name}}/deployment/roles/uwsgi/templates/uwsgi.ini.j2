@@ -12,7 +12,6 @@ chmod-socket = 666
 env = DJANGO_SETTINGS_MODULE={{ uwsgi_django_settings }}
 module = {{ uwsgi_module }}
 venv = {{ uwsgi_venv }}
-uid = {{ repo_name }}
-; Repo root
+uid = {{ app_user }}
 pythonpath = {{ repo_root }}
 pythonpath = {{ repo_root }}/{{ repo_name }}/apps

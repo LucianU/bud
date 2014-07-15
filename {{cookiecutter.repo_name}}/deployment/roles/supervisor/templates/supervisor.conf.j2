@@ -11,7 +11,7 @@ logfile_maxbytes = 10MB
 logfile_backups = 5
 loglevel = info
 pidfile = {{ supervisor_pid_file }}
-user = {{ repo_name }}
+user = {{ app_user }}
 
 [supervisorctl]
 serverurl = unix:/{{ supervisor_sock_file }}

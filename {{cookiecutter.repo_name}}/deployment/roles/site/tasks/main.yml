@@ -9,7 +9,7 @@
   sudo: yes
 
 - name: create 'log' and 'run' dirs
-  file: path={{ item }} state=directory owner={{ repo_name }}
+  file: path={{ item }} state=directory owner={{ app_user }}
   with_items:
     - "{{ project_log_path }}"
     - "{{ project_run_path }}"
@@ -19,6 +19,7 @@
   synchronize: src={{ repo_name }} dest={{ repo_root }}
   when: ENV != "development"
 
+# Why is this needed?
 - name: add project user to remote user's group
   user: name={{ repo_name }} groups={{ remote_user }}
   sudo: yes
@@ -34,4 +35,4 @@
     - migrate
     - collectstatic
   sudo: yes
-  sudo_user: "{{ repo_name }}"
+  sudo_user: "{{ app_user }}"

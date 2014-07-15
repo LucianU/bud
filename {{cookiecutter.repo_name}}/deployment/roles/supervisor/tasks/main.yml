@@ -5,12 +5,12 @@
 
 - name: create config dir
   file: path={{ supervisor_config_file | dirname }} state=directory
-        owner={{ repo_name }} group={{ repo_name }}
+        owner={{ app_user }} group={{ app_group }}
   sudo: yes
 
 - name: generate config file
   template: src=supervisor.conf.j2 dest={{ supervisor_config_file }}
-            owner={{ repo_name }} group={{ repo_name }}
+            owner={{ app_user }} group={{ app_group }}
   notify:
     - restart supervisord
   sudo: yes
