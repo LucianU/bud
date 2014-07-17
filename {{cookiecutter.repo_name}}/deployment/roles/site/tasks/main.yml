@@ -27,7 +27,14 @@
   sudo: yes
   sudo_user: "{{ app_user }}"
 
-- name: sync project files to location
-  synchronize: src={{ repo_name }} dest={{ repo_root }}
+- name: sync 'manage.py' to repo root
+  command: rsync -av {{ temp_dir }}/manage.py {{ repo_root }}/
   when: ENV != "development"
+  sudo: yes
 
+- name: sync project code to repo root
+  # We ignore the "static/" dir
+  command: rsync -av {{ temp_dir }}/{{ repo_name }} {{ repo_root}}/
+            -f "- static/"
+  when: ENV != "development"
+  sudo: yes
