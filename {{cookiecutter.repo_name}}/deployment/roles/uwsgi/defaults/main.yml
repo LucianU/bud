@@ -1,0 +1,7 @@
+---
+uwsgi_config_file: "/usr/local/etc/uwsgi/{{ repo_name }}/uwsgi.ini"
+uwsgi_socket: "{{ project_run_path }}/uwsgi.sock"
+uwsgi_logto: "{{ project_log_path }}/uwsgi.log"
+uwsgi_django_settings: "{{ django_settings_file }}"
+uwsgi_module: "{{ repo_name }}.wsgi"
+uwsgi_venv: "{{ project_venv_path }}"

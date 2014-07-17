@@ -1,0 +1,6 @@
+---
+
+postgres_db_name: "{{ repo_name }}"
+postgres_db_user: "{{ postgres_db_name }}"
+
+

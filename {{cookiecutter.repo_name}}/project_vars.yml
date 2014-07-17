@@ -14,14 +14,6 @@ project_venv_path: "{% raw %}{{ virtualenvs_path }}/{{ repo_name }}{% endraw %}"
 project_venv_bin_path: "{% raw %}{{ project_venv_path }}/bin{% endraw %}"
 project_run_path: "{% raw %}/var/run/{{ repo_name }}{% endraw %}"
 project_log_path: "{% raw %}/var/log/{{ repo_name }}{% endraw %}"
-uwsgi_config_file: "{% raw %}/usr/local/etc/uwsgi/{{ repo_name }}/uwsgi.ini{% endraw %}"
-
-supervisor_config_file: "{% raw %}/usr/local/etc/supervisor/{{ repo_name }}/supervisor.conf{% endraw %}"
-supervisor_service_name: "{% raw %}{{ repo_name }}{% endraw %}"
-supervisord_bin_path: "{% raw %}{{ project_venv_bin_path }}/supervisord{% endraw %}"
-supervisorctl_bin_path: "{% raw %}{{ project_venv_bin_path }}/supervisorctl{% endraw %}"
-supervisor_pid_file: "{% raw %}{{ project_run_path }}/supervisord.pid{% endraw %}"
-supervisor_sock_file: "{% raw %}{{ project_run_path }}/supervisor.sock{% endraw %}"
 
 system_packages:
   - build-essential
