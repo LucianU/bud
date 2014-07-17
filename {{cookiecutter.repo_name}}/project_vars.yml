@@ -6,8 +6,9 @@ repo_host: "{{ cookiecutter.repo_host }}"
 
 app_user: "{% raw %}{{ repo_name }}{% endraw %}"
 app_group: "{% raw %}{{ app_user }}{% endraw %}"
-
+deployment_user: "{{ cookiecutter.deployment_user }}"
 domain_name: "{{ cookiecutter.domain_name }}"
+
 virtualenvs_path: "{% raw %}{{ repo_root | dirname }}/.virtualenvs{% endraw %}"
 project_venv_path: "{% raw %}{{ virtualenvs_path }}/{{ repo_name }}{% endraw %}"
 project_venv_bin_path: "{% raw %}{{ project_venv_path }}/bin{% endraw %}"

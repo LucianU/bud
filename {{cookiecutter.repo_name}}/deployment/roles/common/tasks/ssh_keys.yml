@@ -4,7 +4,7 @@
   register: git_repo_host_key
 
 - name: add git repo host key to known_hosts
-  lineinfile: create=yes dest=/home/{{ remote_user }}/.ssh/known_hosts
+  lineinfile: create=yes dest=/home/{{ deployment_user }}/.ssh/known_hosts
               line="{{ git_repo_host_key.stdout }}"
               state=present
 
