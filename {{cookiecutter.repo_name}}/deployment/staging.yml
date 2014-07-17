@@ -1,6 +1,7 @@
 ---
 - hosts: staging
   gather_facts: false
+  remote_user: "{{ deployment_user }}"
   roles:
     - common
     - memcached
