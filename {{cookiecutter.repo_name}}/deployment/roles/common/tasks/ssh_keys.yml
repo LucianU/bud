@@ -1,13 +1,9 @@
 ---
-- name: get git repo host key
+- name: get repo host key
   shell: ssh-keyscan {{ repo_host }}
   register: git_repo_host_key
 
-- name: add git repo host key to known_hosts
+- name: add repo host key to known_hosts
   lineinfile: create=yes dest=/home/{{ deployment_user }}/.ssh/known_hosts
               line="{{ git_repo_host_key.stdout }}"
               state=present
-
-- name: copy ssh public key to remote host
-  authorized_key: user={{ remote_user }}
-                  key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
