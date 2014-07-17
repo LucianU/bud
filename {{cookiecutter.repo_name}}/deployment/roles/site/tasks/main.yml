@@ -16,9 +16,9 @@
   sudo: yes
 
 - name: run syncdb, migrate and collectstatic commands
-  django_manage: command={{ item }} app_path={{ repo_root }}
+  django_manage: command={{ item }} app_path={{ temp_dir }}
                  settings={{ django_settings_file }}
-                 pythonpath={{ repo_root }}
+                 pythonpath={{ temp_dir }}
                  virtualenv={{ project_venv_path }}
   with_items:
     - syncdb
