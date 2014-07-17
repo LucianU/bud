@@ -11,7 +11,7 @@ deployment_user: vagrant
 memcached_max_memory_mb: 128
 
 # nginx settings
-nginx_server_name: "{{ repo_name }}.dev"
+nginx_server_name: "dev.{{ domain_name }}"
 nginx_access_log: "{{ repo_name }}.access.log"
 nginx_error_log: "{{ repo_name }}.error.log"
 nginx_static_path: "{{ repo_root }}/{{ repo_name }}/static_all"

@@ -4,26 +4,25 @@ ENV: staging
 
 update_apt_cache: yes
 temp_dir: /tmp/{{ repo_name }}
+django_settings_file: "{{ repo_name }}.settings.staging"
 pip_requirements_file: "{{ temp_dir }}/requirements/production.pip"
 
 # memcached settings
 memcached_max_memory_mb: 128
 
 # nginx settings
-nginx_server_name: "{{ domain_name }}"
+nginx_server_name: "staging.{{ domain_name }}"
 nginx_access_log: "{{ repo_name }}.access.log"
 nginx_error_log: "{{ repo_name }}.error.log"
 nginx_static_path: "{{ repo_root }}/{{ repo_name }}/static_all"
 
-
 # postgres settings
-
-
-# supervisor settings
+postgres_db_name: "{{ repo_name }}"
+postgres_db_user: "{{ postgres_db_name }}"
 
 # uwsgi settings
 uwsgi_socket: "{{ project_run_path }}/uwsgi.sock"
 uwsgi_logto: "{{ project_log_path }}/uwsgi.log"
-uwsgi_django_settings: "{{ repo_name }}.settings.staging"
+uwsgi_django_settings: "{{ django_settings_file }}"
 uwsgi_module: "{{ repo_name }}.wsgi"
 uwsgi_venv: "{{ project_venv_path }}"
