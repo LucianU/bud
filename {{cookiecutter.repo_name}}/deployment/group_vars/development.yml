@@ -7,6 +7,9 @@ django_settings_file: "{{ repo_name }}.settings.development"
 pip_requirements_file: "{{ repo_root }}/requirements/development.pip"
 deployment_user: vagrant
 
+# memcached settings
+memcached_max_memory_mb: 128
+
 # nginx settings
 nginx_server_name: "{{ repo_name }}.dev"
 nginx_access_log: "{{ repo_name }}.access.log"
