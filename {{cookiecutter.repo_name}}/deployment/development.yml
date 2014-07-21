@@ -1,6 +1,7 @@
 ---
 - hosts: development
   gather_facts: false
+  remote_user: "{{ deployment_user }}"
   roles:
     - common
     - memcached
