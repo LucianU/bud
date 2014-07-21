@@ -5,6 +5,9 @@ PROJECT_ROOT = path.dirname(path.dirname(path.abspath(__file__)))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# Setting the SECRET_KEY
+from {{ repo_name }}.settings.secret import SECRET_KEY
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
