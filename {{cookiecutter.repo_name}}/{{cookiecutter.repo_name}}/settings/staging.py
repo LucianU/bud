@@ -3,8 +3,8 @@ from {{ cookiecutter.repo_name }}.settings.common import *
 DEBUG = False
 
 DATABASES['default'].update({
-    'NAME': '{{ repo_name }}',
-    'USER': '{{ repo_name }}',
+    'NAME': '{{ cookiecutter.repo_name }}',
+    'USER': '{{ cookiecutter.repo_name }}',
 })
 
 CACHES = {

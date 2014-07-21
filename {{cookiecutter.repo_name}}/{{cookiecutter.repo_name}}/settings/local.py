@@ -1,4 +1,4 @@
-from {{ repo_name }}.settings.common import *
+from {{ cookiecutter.repo_name }}.settings.common import *
 
 DATABASES['default'].update({
     'ENGINE': 'django.db.backends.postgresql_psycopg2',

@@ -1,4 +1,4 @@
-{{ repo_name }}
+{{ cookiecutter.repo_name }}
 ===============
 
 A Django site.
