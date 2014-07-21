@@ -16,7 +16,7 @@ def generate_secret_key():
 
 def generate_file():
     project_name = os.path.basename(os.getcwd())
-    file_path = os.path.join(os.getcwd(), project_name, 'settings', 'secret')
+    file_path = os.path.join(os.getcwd(), project_name, 'settings', 'secret.py')
     with open(file_path, 'w') as f:
         file_content = 'SECRET_KEY=%s' % generate_secret_key()
         f.write(file_content)
