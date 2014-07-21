@@ -7,6 +7,12 @@
     "domain_name": null,
     "deployment_user": null,
     "_copy_without_render": [
-        "*deployment"
+        "*deployment/*.yml",
+        "*deployment/host_vars",
+        "*deployment/inventory",
+        "*deployment/roles",
+        "*deployment/group_vars/development.yml",
+        "*deployment/group_vars/production.yml",
+        "*deployment/group_vars/staging.yml",
     ]
 }
