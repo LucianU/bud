@@ -14,6 +14,6 @@ INTERNAL_IPS = (
 )
 
 try:
-    from {{ repo_name }}.settings.local import *
+    from {{ cookiecutter.repo_name }}.settings.local import *
 except ImportError:
     pass
