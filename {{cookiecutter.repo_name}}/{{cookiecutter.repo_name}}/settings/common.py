@@ -6,7 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Setting the SECRET_KEY
-from {{ repo_name }}.settings.secret import SECRET_KEY
+from {{ cookiecutter.repo_name }}.settings.secret import SECRET_KEY
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
