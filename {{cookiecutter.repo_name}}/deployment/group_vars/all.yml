@@ -1,6 +1,6 @@
 ---
 repo_name: "{{ cookiecutter.repo_name }}"
-repo_root: "{{ cookiecutter.webapps_root }}/{{ repo_name }}"
+repo_root: "{{ cookiecutter.webapps_root }}/{% raw %}{{ repo_name }}{% endraw %}"
 repo_url: "{{ cookiecutter.repo_url }}"
 repo_host: "{{ cookiecutter.repo_host }}"
 
