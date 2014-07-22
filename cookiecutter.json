@@ -13,6 +13,6 @@
         "*deployment/roles",
         "*deployment/group_vars/development.yml",
         "*deployment/group_vars/production.yml",
-        "*deployment/group_vars/staging.yml",
+        "*deployment/group_vars/staging.yml"
     ]
 }
