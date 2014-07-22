@@ -3,8 +3,6 @@
    gather_facts: false
    roles:
      - secure
-   vars_files:
-     - ../project_vars.yml
    vars_prompt:
      - name: "deployment_user_pass"
        prompt: "password for deployment_user"

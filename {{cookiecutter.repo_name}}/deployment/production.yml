@@ -11,5 +11,3 @@
     - site
     - uwsgi
     - supervisor
-  vars_files:
-    - ../project_vars.yml
