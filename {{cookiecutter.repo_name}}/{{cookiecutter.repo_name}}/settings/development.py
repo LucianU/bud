@@ -1,6 +1,11 @@
 from {{ cookiecutter.repo_name }}.settings.common import *
 
 
+DATABASES['default'].update({
+    'NAME': '{{ cookiecutter.repo_name }}',
+    'USER': '{{ cookiecutter.repo_name }}',
+})
+
 MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
