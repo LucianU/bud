@@ -1,11 +1,5 @@
 from {{ cookiecutter.repo_name }}.settings.common import *
 
-DATABASES['default'].update({
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': '',
-    'USER': '',
-})
-
 # e-mail settings
 DEFAULT_FROM_EMAIL = ''
 SERVER_EMAIL = ''
