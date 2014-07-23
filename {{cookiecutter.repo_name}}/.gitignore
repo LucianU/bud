@@ -9,7 +9,7 @@
 *~
 
 # Local settings file:
-{{ repo_name }}/settings/local.py
+{{ cookiecutter.repo_name }}/settings/local.py
 
 # Sphinx docs:
 build
@@ -20,5 +20,5 @@ build
 # Celerybeat scheduler file:
 celerybeat-schedule
 
-# Vagrant directory
+# Vagrant directory:
 .vagrant
