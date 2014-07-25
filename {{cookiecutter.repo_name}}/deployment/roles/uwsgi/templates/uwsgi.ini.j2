@@ -15,3 +15,6 @@ venv = {{ uwsgi_venv }}
 uid = {{ app_user }}
 pythonpath = {{ repo_root }}
 pythonpath = {{ repo_root }}/{{ repo_name }}/apps
+{% if ENV == "development" %}
+    python-autoreload = 2
+{% endif %}
