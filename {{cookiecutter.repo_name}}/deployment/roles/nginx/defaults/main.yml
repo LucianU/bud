@@ -3,5 +3,6 @@
 nginx_access_log: "{{ repo_name }}.access.log"
 nginx_error_log: "{{ repo_name }}.error.log"
 nginx_static_path: "{{ repo_root }}/{{ repo_name }}/static_all"
+nginx_templates_path: "{{ repo_root }}/{{ repo_name }}/templates"
 nginx_http_port: 80
 nginx_https_port: 443
