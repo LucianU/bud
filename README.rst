@@ -76,17 +76,17 @@ Quickstart
     VMs at the same time.
 
 * When you're ready to deploy your changes to staging or production, you should
-   first set the IP or name of your host in ``deployment/inventory/staging`` or
-   ``deployment/inventory/production`` respectively. This machine should be
-   accessible through password authentication
+  first set the IP or name of your host in ``deployment/inventory/staging`` or
+  ``deployment/inventory/production`` respectively. This machine should be
+  accessible through password authentication
 
 * Then you need to run a command that will prepare the machine::
 
     ansible-playbook deployment/secure.yml -kK -u <user>
 
-   Where ``<user>`` is the user you login as. This user should have sudo rights.
-   You will be prompted for the password of this user and also for the password
-   of the deployment user that will be created.
+  Where ``<user>`` is the user you login as. This user should have sudo rights.
+  You will be prompted for the password of this user and also for the password
+  of the deployment user that will be created.
 
 * Let's say you prepared this machine for staging. After the previous command
   finished, you can deploy the site by running::
