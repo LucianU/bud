@@ -1,1 +1,4 @@
 ---
+- name: load iptables rules
+  shell: iptables-restore < /etc/iptables.rules
+  sudo: yes

@@ -16,3 +16,29 @@
 - name: restart ssh
   service: name=ssh state=restarted
   sudo: yes
+
+- name: install fail2ban
+  apt: name=fail2ban state=present
+  sudo: yes
+
+- name: install unattended-upgrades
+  apt: name=unattended-upgrades state=present
+  sudo: yes
+
+- name: adjust APT update intervals
+  copy: src=apt_periodic dest=/etc/apt/apt.conf.d/10periodic
+  sudo: yes
+
+- name: install iptables
+  apt: name=iptables state=present
+  sudo: yes
+
+- name: copy iptables rules file
+  copy: src=iptables.rules dest=/etc/iptables.rules
+  notify:
+    - load iptables rules
+  sudo: yes
+
+- name: enable iptables rules at startup
+  copy: src=firewall dest=/etc/network/if-pre-up.d/firewall mode=0754
+  sudo: yes
