@@ -252,7 +252,7 @@ project, you would add a ``solr`` role.
 
 The YAML files found directly in ``deployment`` contain `Ansible Playbooks`_. A
 playbook specifies which roles or tasks to run against which host. If you've
-added a ``solr`` role, you should also add in the playbooks here, to make sure
+added a ``solr`` role, you should also add it in the playbooks here, to make sure
 it will run.
 
 Another important directory is ``group_vars``. This contains variables used
