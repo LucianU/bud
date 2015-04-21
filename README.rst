@@ -12,7 +12,7 @@ Quickstart
 * Install cookiecutter. You need my fork, because it supports copying without
   rendering::
 
-    pip install git+https://github.com/LucianU/cookiecutter.git@copy-without-render
+    pip install git+https://github.com/audreyr/cookiecutter.git
 
 * Install ansible and passlib::
 
