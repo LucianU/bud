@@ -13,3 +13,9 @@
   with_items: system_packages
   sudo: yes
   tags: packages
+
+- name: link the freetype headers
+  file: src=/usr/include/freetype2
+        dest=/usr/local/include/freetype
+        state=link
+  sudo: yes
