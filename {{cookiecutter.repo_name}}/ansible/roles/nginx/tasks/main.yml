@@ -4,7 +4,7 @@
   sudo: yes
 
 - name: install nginx
-  apt: name=nginx=1.7.1-1+precise0 update_cache={{ update_apt_cache }} state=installed
+  apt: name=nginx update_cache={{ update_apt_cache }} state=installed
   sudo: yes
   tags: packages
 
