@@ -18,8 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "deployment/development.yml"
-    ansible.inventory_path = "deployment/inventory/development"
+    ansible.playbook = "ansible/development.yml"
+    ansible.inventory_path = "ansible/inventory/development"
     ansible.limit = "development"
     ansible.host_key_checking = false
     ansible.verbose = "v"
