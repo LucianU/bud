@@ -7,15 +7,15 @@
     "domain_name": null,
     "deployment_user": null,
     "_copy_without_render": [
-        "*deployment/development.yml",
-        "*deployment/production.yml",
-        "*deployment/staging.yml",
-        "*deployment/secure.yml",
-        "*deployment/host_vars",
-        "*deployment/inventory",
-        "*deployment/roles",
-        "*deployment/group_vars/development.yml",
-        "*deployment/group_vars/production.yml",
-        "*deployment/group_vars/staging.yml"
+        "*ansible/development.yml",
+        "*ansible/production.yml",
+        "*ansible/staging.yml",
+        "*ansible/secure.yml",
+        "*ansible/host_vars",
+        "*ansible/inventory",
+        "*ansible/roles",
+        "*ansible/group_vars/development.yml",
+        "*ansible/group_vars/production.yml",
+        "*ansible/group_vars/staging.yml"
     ]
 }
