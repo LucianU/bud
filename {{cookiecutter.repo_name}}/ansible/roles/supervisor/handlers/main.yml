@@ -1,6 +1,0 @@
----
-# We use 'sleep', because supervisor needs time to stop
-- name: restart supervisord
-  service: name={{ supervisor_service_name }} state=restarted
-           sleep=5
-  sudo: yes
