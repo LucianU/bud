@@ -4,7 +4,6 @@
     "repo_host": "bitbucket.org",
     "ssh_private_key_path": "~/.ssh/id_rsa",
     "webapps_root": "/var/www",
-    "domain_name": null,
     "deployment_user": null,
     "_copy_without_render": [
         "*ansible/development.yml",
