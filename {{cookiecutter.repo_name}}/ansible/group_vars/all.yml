@@ -9,7 +9,7 @@ app_group: "{% raw %}{{ app_user }}{% endraw %}"
 deployment_user: "{{ cookiecutter.deployment_user }}"
 domain_name: "{{ cookiecutter.domain_name }}"
 
-virtualenvs_path: "{% raw %}{{ repo_root | dirname }}/.virtualenvs{% endraw %}"
+virtualenvs_path: "{% raw %}{{ repo_root|dirname }}/.virtualenvs{% endraw %}"
 project_venv_path: "{% raw %}{{ virtualenvs_path }}/{{ repo_name }}{% endraw %}"
 project_venv_bin_path: "{% raw %}{{ project_venv_path }}/bin{% endraw %}"
 project_run_path: "{% raw %}/var/run/{{ repo_name }}{% endraw %}"
