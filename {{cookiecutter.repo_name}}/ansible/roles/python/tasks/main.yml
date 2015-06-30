@@ -1,0 +1,29 @@
+---
+- name: install system packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: python_packages
+  sudo: yes
+
+- name: link the freetype headers
+  file:
+    src: /usr/include/freetype2
+    dest: /usr/local/include/freetype
+    state: link
+  sudo: yes
+
+- name: install pip packages
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - wheel
+    - virtualenv
+  sudo: yes
+
+- name: create dir for virtualenvs
+  file:
+    path: "{{ python_virtualenvs_dir }}"
+    state: directory
+  sudo: yes
