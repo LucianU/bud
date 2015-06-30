@@ -1,4 +1,0 @@
----
-- include: user.yml
-- include: ssh_keys.yml
-- include: packages.yml
