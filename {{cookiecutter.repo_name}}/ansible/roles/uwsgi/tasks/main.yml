@@ -1,14 +1,28 @@
 ---
 - name: install uwsgi
-  pip: name=uwsgi version=2.0.5.1 virtualenv={{ project_venv_path }}
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - uwsgi
+    - uwsgi-plugin-python
   sudo: yes
 
-- name: create config dir
-  file: path={{ uwsgi_config_file | dirname }} state=directory
-        owner={{ app_user }} group={{ app_group }}
+- name: install config file
+  template:
+    src: uwsgi.ini.j2
+    dest: /etc/uwsgi/apps-available/{{ site_repo_name }}.ini
+    owner: "{{ site_app_user }}"
+    group: "{{ site_app_group }}"
+  notify:
+    - restart uwsgi
   sudo: yes
 
-- name: generate config file
-  template: src=uwsgi.ini.j2 dest={{ uwsgi_config_file }}
-            owner={{ app_user }} group={{ app_group }}
+- name: enable app config
+  file:
+    src: /etc/uwsgi/apps-available/{{ site_repo_name }}.ini
+    dest: /etc/uwsgi/apps-enabled/{{ site_repo_name }}.ini
+    state: link
+  notify:
+    - restart uwsgi
   sudo: yes
