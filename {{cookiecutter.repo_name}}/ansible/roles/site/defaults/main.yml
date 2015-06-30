@@ -1,0 +1,9 @@
+---
+site_app_user: "{{ site_repo_name }}"
+site_app_group: "{{ site_app_user }}"
+site_django_bash_completion_url: "https://raw.githubusercontent.com/django/django/master/extras/django_bash_completion"
+site_django_settings: "{{ site_repo_name }}.settings.{{ ENV }}"
+site_pip_requirements: "{{ site_repo_root }}/requirements/{{ ENV }}.pip"
+site_prod_env: ENV != "development"
+site_repo_root: /var/www/{{ site_repo_name }}
+site_virtualenv: "{{ virtualenv_envs_path }}/{{ site_repo_name }}"

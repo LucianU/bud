@@ -1,0 +1,22 @@
+---
+- name: create app user
+  user:
+    name: "{{ site_app_user }}"
+    home: "{{ site_repo_root }}"
+    state: present
+  sudo: yes
+
+- name: clone project to /tmp
+  git:
+    repo: "{{ site_repo_url }}"
+    dest: "{{ site_temp_dir }}"
+    accept_hostkey: yes
+
+- name: set the app user as the owner
+  file:
+    path: "{{ site_temp_dir }}"
+    owner: "{{ site_app_user }}"
+    group: "{{ site_app_user }}"
+    recurse: yes
+    state: directory
+  sudo: yes

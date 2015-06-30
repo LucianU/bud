@@ -1,40 +1,45 @@
 ---
-- name: create 'log' and 'run' dirs
-  file: path={{ item }} state=directory owner={{ app_user }}
-  with_items:
-    - "{{ project_log_path }}"
-    - "{{ project_run_path }}"
-  sudo: yes
-
-- name: clone project to /tmp
-  git: repo={{ repo_url }} dest={{ temp_dir }}
-  when: ENV != "development"
+- include: prod1.yml
+  when: site_prod_env
 
 - name: install pip requirements
-  pip: requirements={{ pip_requirements_file }}
-       virtualenv={{ project_venv_path }}
+  pip:
+    requirements: "{{ site_pip_requirements }}"
+    virtualenv: "{{ site_virtualenv }}"
   sudo: yes
 
 - name: run syncdb, migrate and collectstatic commands
-  django_manage: command={{ item }} app_path={{ temp_dir }}
-                 settings={{ django_settings_file }}
-                 pythonpath={{ temp_dir }}
-                 virtualenv={{ project_venv_path }}
+  django_manage:
+    command: "{{ item }}"
+    app_path: "{{ site_temp_dir }}"
+    settings: "{{ site_django_settings }}"
+    pythonpath: "{{ site_temp_dir }}"
+    virtualenv: "{{ site_virtualenv }}"
   with_items:
     - syncdb
     - migrate
     - collectstatic
   sudo: yes
-  sudo_user: "{{ app_user }}"
+  sudo_user: "{{ site_app_user }}"
 
-- name: sync 'manage.py' to repo root
-  command: rsync -av {{ temp_dir }}/manage.py {{ repo_root }}/
-  when: ENV != "development"
+- name: append app_user_group to www-data\'s groups
+  user:
+    name: www-data
+    groups: "{{ site_app_group }}"
+    append: yes
+  notify:
+    - restart nginx
   sudo: yes
 
-- name: sync project code to repo root
-  # We ignore the "static/" dir
-  command: rsync -av {{ temp_dir }}/{{ repo_name }} {{ repo_root}}/
-            -f "- static/"
-  when: ENV != "development"
+- include: prod2.yml
+  when: site_prod_env
+
+- name: install django bash completion
+  get_url:
+    url: "{{ site_django_bash_completion_url }}"
+    dest: /usr/share/bash-completion/completions/django
+    owner: root
+    group: root
+    mode: 0644
+  when: ENV == "development"
   sudo: yes
