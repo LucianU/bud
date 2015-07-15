@@ -6,4 +6,4 @@ site_django_settings: "{{ site_repo_name }}.settings.{{ ENV }}"
 site_pip_requirements: "{{ site_repo_root }}/requirements/{{ ENV }}.pip"
 site_prod_env: ENV != "development"
 site_repo_root: /var/www/{{ site_repo_name }}
-site_virtualenv: "{{ virtualenv_envs_path }}/{{ site_repo_name }}"
+site_virtualenv: "{{ python_virtualenvs_dir }}/{{ site_repo_name }}"
