@@ -4,8 +4,8 @@
    roles:
      - secure
    vars_prompt:
-     - name: "deployment_user_pass"
-       prompt: "password for deployment_user"
+     - name: "secure_deployment_user_pass"
+       prompt: "password for secure_deployment_user"
        encrypt: "sha512_crypt"
        private: yes
        confirm: yes

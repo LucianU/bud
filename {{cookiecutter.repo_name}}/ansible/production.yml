@@ -1,7 +1,7 @@
 ---
 - hosts: production
   gather_facts: false
-  remote_user: "{{ deployment_user }}"
+  remote_user: "{{ secure_deployment_user }}"
   roles:
     - python
     - memcached
