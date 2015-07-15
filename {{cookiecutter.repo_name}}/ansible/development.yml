@@ -2,6 +2,12 @@
 - hosts: development
   gather_facts: false
   remote_user: "{{ secure_deployment_user }}"
+  pre_tasks:
+    - name: install avahi-daemon
+      apt:
+        name: avahi-daemon
+        state: present
+      sudo: yes
   roles:
     - python
     - memcached
