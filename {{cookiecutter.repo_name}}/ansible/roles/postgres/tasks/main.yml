@@ -1,7 +1,7 @@
 ---
 - name: install postgres packages
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: installed
   with_items:
     - postgresql-9.3
