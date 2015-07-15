@@ -1,3 +1,6 @@
 ---
 - name: restart memcached
-  service: name=memcached state=restarted enabled=yes
+  service:
+    name: memcached
+    state: restarted
+  sudo: yes

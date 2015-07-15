@@ -1,17 +1,19 @@
 ---
 - name: install memcached
-  apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
+  apt:
+    name: "{{ item }}"
+    state: installed
   with_items:
     - memcached
     - libmemcached-dev
   sudo: yes
-  tags: packages
 
 - name: create memcached config file
-  template: src=memcached.conf.j2
-            dest=/etc/memcached.conf
-            mode=0644
-            backup=yes
-  sudo: yes
+  template:
+    src: memcached.conf.j2
+    dest: /etc/memcached.conf
+    mode: 0644
+    backup: yes
   notify:
     - restart memcached
+  sudo: yes
