@@ -1,14 +1,5 @@
 ---
-
 ENV: production
 
-update_apt_cache: yes
-temp_dir: /tmp/{{ repo_name }}
-django_settings_file: "{{ repo_name }}.settings.production"
-pip_requirements_file: "{{ temp_dir }}/requirements/production.pip"
-
-# memcached settings
-memcached_max_memory_mb: 128
-
 # nginx settings
-nginx_server_name: "www.{{ domain_name }}"
+nginx_server_name:

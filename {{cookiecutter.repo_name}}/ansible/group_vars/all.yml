@@ -1,27 +1,9 @@
 ---
-repo_name: "{{ cookiecutter.repo_name }}"
-repo_root: "{{ cookiecutter.webapps_root }}/{% raw %}{{ repo_name }}{% endraw %}"
-repo_url: "{{ cookiecutter.repo_url }}"
-repo_host: "{{ cookiecutter.repo_host }}"
+secure_deployment_user: "{{ cookiecutter.deployment_user }}"
 
-app_user: "{% raw %}{{ repo_name }}{% endraw %}"
-app_group: "{% raw %}{{ app_user }}{% endraw %}"
-deployment_user: "{{ cookiecutter.deployment_user }}"
-domain_name: "{{ cookiecutter.domain_name }}"
+memcached_max_memory_mb: 124
 
-virtualenvs_path: "{% raw %}{{ repo_root|dirname }}/.virtualenvs{% endraw %}"
-project_venv_path: "{% raw %}{{ virtualenvs_path }}/{{ repo_name }}{% endraw %}"
-project_venv_bin_path: "{% raw %}{{ project_venv_path }}/bin{% endraw %}"
-project_run_path: "{% raw %}/var/run/{{ repo_name }}{% endraw %}"
-project_log_path: "{% raw %}/var/log/{{ repo_name }}{% endraw %}"
-
-system_packages:
-  - build-essential
-  - git
-  - liblcms1-dev
-  - libfreetype6-dev
-  - libjpeg8-dev
-  - zlib1g-dev
-  - python-dev
-  - python-pip
-  - python-psycopg2
+site_repo_host: "{{ cookiecutter.repo_host }}"
+site_repo_name: "{{ cookiecutter.repo_name }}"
+site_repo_root: "{{ cookiecutter.webapps_root }}/{% raw %}{{ site_repo_name }}{% endraw %}"
+site_repo_url: "{{ cookiecutter.repo_url }}"

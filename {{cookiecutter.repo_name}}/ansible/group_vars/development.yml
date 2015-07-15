@@ -1,17 +1,15 @@
 ---
-
 ENV: development
 
-update_apt_cache: yes
+secure_deployment_user: vagrant
+
+site_app_user: vagrant
 # There is no temp_dir in development, but since it's referenced by
 # a task, it needs to have a value, which is repo_root
-temp_dir: "{{ repo_root }}"
-django_settings_file: "{{ repo_name }}.settings.development"
-pip_requirements_file: "{{ repo_root }}/requirements/development.pip"
-deployment_user: vagrant
+site_temp_dir: /vagrant
 
 # memcached settings
-memcached_max_memory_mb: 128
+memcached_max_memory_mb: 64
 
 # nginx settings
-nginx_server_name: "dev.{{ domain_name }}"
+nginx_server_name: "{{ site_repo_name }}.local"
