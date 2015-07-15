@@ -5,23 +5,24 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.network :private_network, ip: "192.168.33.15"
+  config.vm.hostname = "{{ cookiecutter.repo_name }}"
+  config.vm.network :private_network, type: "dhcp"
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--name", "{{cookiecutter.repo_name}}", "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--name", "{{ cookiecutter.repo_name }}", "--memory", "1024"]
   end
 
-  # Shared folder from the host machine to the guest machine. Uncomment the line
-  # below to enable it.
-  config.vm.synced_folder "../{{cookiecutter.repo_name}}", "/var/www/{{cookiecutter.repo_name}}"
-  config.ssh.private_key_path = ["~/.vagrant.d/insecure_private_key", "{{cookiecutter.ssh_private_key_path}}"]
+  config.vm.synced_folder "../{{ cookiecutter.repo_name }}", "/var/www/{{ cookiecutter.repo_name }}"
+  config.ssh.private_key_path = ["~/.vagrant.d/insecure_private_key", "{{ cookiecutter.ssh_private_key_path }}"]
+  config.ssh.insert_key = false
   config.ssh.forward_agent = true
 
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
+    ansible.groups = {
+        "development" => ["default"]
+    }
     ansible.playbook = "ansible/development.yml"
-    ansible.inventory_path = "ansible/inventory/development"
-    ansible.limit = "development"
     ansible.host_key_checking = false
-    ansible.verbose = "v"
+    ansible.raw_arguments = ["--timeout=100"]
   end
 end
