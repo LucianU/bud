@@ -1,6 +1,8 @@
 ---
 ENV: development
 
+postgres_db_name: "{{ site_repo_name }}"
+
 secure_deployment_user: vagrant
 
 site_app_user: vagrant
