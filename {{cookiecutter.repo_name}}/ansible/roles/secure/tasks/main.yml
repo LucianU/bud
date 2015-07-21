@@ -10,7 +10,7 @@
 
 - name: copy ssh public key to remote host
   authorized_key:
-    user: "{{ remote_user }}"
+    user: "{{ secure_deployment_user }}"
     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
   sudo: yes
 
