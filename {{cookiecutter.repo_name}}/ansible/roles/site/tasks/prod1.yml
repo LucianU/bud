@@ -12,6 +12,7 @@
   user:
     name: "{{ site_app_user }}"
     home: "{{ site_repo_root }}"
+    createhome: no
     state: present
   sudo: yes
 
