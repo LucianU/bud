@@ -1,4 +1,13 @@
 ---
+- name: make sure /var/www exists
+  file:
+    path: /var/www
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  sudo: yes
+
 - name: create app user
   user:
     name: "{{ site_app_user }}"
