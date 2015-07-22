@@ -2,4 +2,6 @@
 ENV: staging
 
 # nginx settings
-nginx_server_name:
+
+# Set a value and uncomment
+#nginx_server_name:
