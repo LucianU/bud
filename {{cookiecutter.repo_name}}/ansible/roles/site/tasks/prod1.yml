@@ -16,7 +16,7 @@
     state: present
   sudo: yes
 
-- name: clone project to /tmp
+- name: clone project to temp dir
   git:
     repo: "{{ site_repo_url }}"
     dest: "{{ site_temp_dir }}"
