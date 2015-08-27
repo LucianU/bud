@@ -30,7 +30,6 @@ Quickstart
 
     repo_name: the name of the project directory
     repo_url: the URL of the repo you created on GitHub, Bitbucket, etc.
-    repo_host: the domain name of the repo hosting (github.com, bitbucket.org)
     ssh_private_key_path: the path to the private key you want to auth with
     webapps_root: the path to where your project will be deployed
     domain_name: the domain name of the site you're developing

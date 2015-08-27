@@ -3,7 +3,6 @@ secure_deployment_user: "{{ cookiecutter.deployment_user }}"
 
 memcached_max_memory_mb: 124
 
-site_repo_host: "{{ cookiecutter.repo_host }}"
 site_repo_name: "{{ cookiecutter.repo_name }}"
 site_repo_root: "{{ cookiecutter.webapps_root }}/{% raw %}{{ site_repo_name }}{% endraw %}"
 site_repo_url: "{{ cookiecutter.repo_url }}"
