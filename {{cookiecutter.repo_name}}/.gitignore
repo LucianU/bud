@@ -24,4 +24,4 @@ celerybeat-schedule
 .vagrant
 
 # External Ansible roles:
-{{cookiecutter.repo_name}}/ansible/roles/ansible-*
+ansible/roles/ansible-*
