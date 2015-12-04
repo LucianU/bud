@@ -8,9 +8,6 @@
 *.swp
 *~
 
-# Local settings file:
-{{ cookiecutter.repo_name }}/settings/local.py
-
 # Sphinx docs:
 build
 
@@ -25,3 +22,6 @@ celerybeat-schedule
 
 # External Ansible roles:
 ansible/roles/ansible-*
+
+# Local .env file:
+.env
