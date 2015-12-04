@@ -9,9 +9,9 @@
         state: present
       sudo: yes
   roles:
-    - python
-    - memcached
-    - nginx
-    - postgres
-    - site
-    - uwsgi
+    - ansible-python
+    - ansible-memcached
+    - ansible-nginx
+    - ansible-postgres
+    - ansible-django-site
+    - ansible-uwsgi

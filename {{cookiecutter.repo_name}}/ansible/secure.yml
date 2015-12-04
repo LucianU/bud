@@ -2,7 +2,7 @@
  - hosts: production
    gather_facts: false
    roles:
-     - secure
+     - ansible-secure
    vars_prompt:
      - name: "secure_deployment_user_pass"
        prompt: "password for secure_deployment_user"
