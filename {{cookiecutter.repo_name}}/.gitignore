@@ -17,5 +17,8 @@ build
 # External Ansible roles:
 ansible/roles/ansible-*
 
-# Local .env file:
+# Env file:
 .env
+
+# Collected static files:
+static_all
