@@ -11,12 +11,6 @@
 # Sphinx docs:
 build
 
-# SQLite3 database files:
-*.db
-
-# Celerybeat scheduler file:
-celerybeat-schedule
-
 # Vagrant directory:
 .vagrant
 
