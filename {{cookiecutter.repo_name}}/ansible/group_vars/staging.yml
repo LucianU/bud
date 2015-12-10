@@ -5,3 +5,5 @@ ENV: staging
 
 # Set a value and uncomment
 #nginx_server_name:
+
+site_secret_key:
