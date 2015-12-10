@@ -10,8 +10,4 @@ site_app_user: vagrant
 # a task, it needs to have a value, which is repo_root
 site_temp_dir: /vagrant
 
-# memcached settings
-memcached_max_memory_mb: 64
-
-# nginx settings
 nginx_server_name: "{{ site_repo_name }}.local"
