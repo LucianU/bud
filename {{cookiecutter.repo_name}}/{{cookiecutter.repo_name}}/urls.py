@@ -1,6 +1,7 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import include, url
 
 
-urlpatterns = patterns('',
-    url(r'^', include('globe.urls')),
-)
+urlpatterns = [
+    url(r'^$', '{{ cookiecutter.repo_name }}.views.under_construction',
+        name='under_construction'),
+]
