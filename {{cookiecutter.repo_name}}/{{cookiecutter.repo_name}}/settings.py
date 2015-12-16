@@ -8,12 +8,14 @@ base_dir = environ.Path(__file__) - 1
 DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY')
 ALLOWED_HOSTS = env('ALLOWED_HOSTS', default=[])
+SITE_ID = 1
 
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
