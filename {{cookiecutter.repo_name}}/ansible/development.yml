@@ -11,7 +11,5 @@
   roles:
     - ansible-python
     - ansible-memcached
-    - ansible-nginx
     - ansible-postgres
     - ansible-django-site
-    - ansible-uwsgi

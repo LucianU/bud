@@ -9,5 +9,3 @@ site_app_user: vagrant
 # There is no temp_dir in development, but since it's referenced by
 # a task, it needs to have a value, which is repo_root
 site_temp_dir: /vagrant
-
-nginx_server_name: "{{ site_repo_name }}.local"
