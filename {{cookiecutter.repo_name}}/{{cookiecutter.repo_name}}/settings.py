@@ -10,7 +10,7 @@ SECRET_KEY = env('SECRET_KEY')
 ALLOWED_HOSTS = env('ALLOWED_HOSTS', default=[])
 SITE_ID = 1
 
-INSTALLED_APPS = (
+BUILTIN_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -19,8 +19,16 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
-ENV_INSTALLED_APPS = env('INSTALLED_APPS', default=())
-INSTALLED_APPS += ENV_INSTALLED_APPS
+
+LOCAL_APPS = (
+    '',
+)
+
+THIRD_PARTY_APPS = (
+    '',
+)
+
+INSTALLED_APPS = BUILTIN_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,4 +83,3 @@ TEMPLATES = [
 DATABASES = {
     'default': env.db(),
 }
-
