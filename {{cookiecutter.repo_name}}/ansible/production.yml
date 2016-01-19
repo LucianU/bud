@@ -3,6 +3,7 @@
   gather_facts: false
   remote_user: "{{ secure_deployment_user }}"
   roles:
+    - ansible-locale
     - ansible-python
     - ansible-memcached
     - ansible-nginx

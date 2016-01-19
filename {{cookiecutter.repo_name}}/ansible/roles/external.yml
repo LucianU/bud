@@ -1,5 +1,7 @@
 - src: https://github.com/LucianU/ansible-django-site
 
+- src: https://github.com/LucianU/ansible-locale
+
 - src: https://github.com/LucianU/ansible-memcached
 
 - src: https://github.com/LucianU/ansible-nginx

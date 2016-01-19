@@ -9,6 +9,7 @@
         state: present
       sudo: yes
   roles:
+    - ansible-locale
     - ansible-python
     - ansible-memcached
     - ansible-postgres
