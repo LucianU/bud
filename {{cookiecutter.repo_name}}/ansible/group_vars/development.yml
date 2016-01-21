@@ -1,9 +1,10 @@
 ---
 ENV: development
 
-postgres_db_name: "{{ site_repo_name }}"
+postgres_db: "{{ site_repo_name }}"
+postgres_user: "{{ site_app_user }}"
 
-secure_deployment_user: vagrant
+secure_deployment_user: "{{ site_app_user }}"
 
 site_app_user: vagrant
 # There is no temp_dir in development, but since it's referenced by

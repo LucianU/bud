@@ -1,9 +1,9 @@
 ---
 ENV: staging
 
-# nginx settings
-
 # Set a value and uncomment
 #nginx_server_name:
+nginx_static_path: "{{ site_repo_root }}/{{ site_repo_name }}/static_all"
+nginx_templates_path: "{{ site_repo_root }}/{{ site_repo_name }}/templates"
 
 site_secret_key:
