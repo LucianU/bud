@@ -84,3 +84,5 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = 'user.User'
+LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_URL = 'account_login'
