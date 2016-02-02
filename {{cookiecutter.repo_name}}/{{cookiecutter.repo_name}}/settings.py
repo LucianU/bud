@@ -21,6 +21,7 @@ BUILTIN_APPS = (
 )
 
 LOCAL_APPS = (
+    'users',
 )
 
 THIRD_PARTY_APPS = (
@@ -81,3 +82,5 @@ TEMPLATES = [
 DATABASES = {
     'default': env.db(),
 }
+
+AUTH_USER_MODEL = 'user.User'
