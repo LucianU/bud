@@ -1,12 +1,15 @@
-coverage==3.6
 django>=1.8.0,<=1.8.9
-mock==1.0.1
-pillow==2.2.1
-psycopg2==2.5.1
-pylibmc==1.2.3
+
+# Database
+psycopg2==2.6.1
+
+# Caching
+pylibmc==1.5.0
+
+# Images
+pillow==3.1.0
 
 # Django apps
 django-allauth==0.24.1
 django-braces==1.8.1
 django-environ==0.4.0
-easy-thumbnails==1.4
