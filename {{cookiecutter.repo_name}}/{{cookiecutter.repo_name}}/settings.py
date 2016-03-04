@@ -89,7 +89,7 @@ DATABASES = {
 
 # Users
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'account_login'
 ADMIN_URL = r'^admin/'
 
