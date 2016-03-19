@@ -45,8 +45,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 # Entry points
-ROOT_URLCONF = '{{ cookiecutter.repo_name }}.urls'
-WSGI_APPLICATION = '{{ cookiecutter.repo_name }}.wsgi.application'
+ROOT_URLCONF = '{{ cookiecutter.project_name }}.urls'
+WSGI_APPLICATION = '{{ cookiecutter.project_name }}.wsgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

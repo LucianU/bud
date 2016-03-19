@@ -28,13 +28,9 @@ Quickstart
 
   The prompts are::
 
-    repo_name: the name of the project directory
-    repo_url: the URL of the repo you created on GitHub, Bitbucket, etc.
+    project_name: the name of the project directory
+    deployment_user: the name of the user created on the remote host and used for deployment
     ssh_private_key_path: the path to the private key you want to auth with
-    webapps_root: the path to where your project will be deployed
-    domain_name: the domain name of the site you're developing
-    deployment_user: the name of the user created on the remote host and used
-        for deployment
 
 * Go inside your project directory and create your first commit::
 

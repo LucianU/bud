@@ -1,12 +1,8 @@
 ---
 ENV: development
 
-postgres_db: "{{ site_repo_name }}"
-postgres_user: "{{ site_app_user }}"
+site_app_user: vagrant
+# In development, the build dir is the same as the deployment dir
+site_build_dir: /vagrant
 
 secure_deployment_user: "{{ site_app_user }}"
-
-site_app_user: vagrant
-# There is no temp_dir in development, but since it's referenced by
-# a task, it needs to have a value, which is repo_root
-site_temp_dir: /vagrant

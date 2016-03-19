@@ -1,9 +1,7 @@
 {
-    "repo_name": null,
-    "repo_url": null,
-    "ssh_private_key_path": "~/.ssh/id_rsa",
-    "webapps_root": "/var/www",
+    "project_name": null,
     "deployment_user": null,
+    "ssh_private_key_path": "~/.ssh/id_rsa",
     "_copy_without_render": [
         "*ansible/development.yml",
         "*ansible/production.yml",

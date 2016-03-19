@@ -1,13 +1,8 @@
 ---
 secure_deployment_user: "{{ cookiecutter.deployment_user }}"
+site_dir_name: "{{ cookiecutter.project_name }}"
 
-postgres_user: "{% raw %}{{ repo_name }}{% endraw %}"
+postgres_user: "{% raw %}{{ site_dir_name }}{% endraw %}"
 
-repo_name: "{{ cookiecutter.repo_name }}"
-repo_root: "{{ cookiecutter.webapps_root }}/{% raw %}{{ repo_name }}{% endraw %}"
-repo_url: "{{ cookiecutter.repo_url }}"
-
-site_db_url: "psql:///{% raw %}{{ site_repo_name }}{% endraw %}"
-site_repo_name: "{% raw %}{{ repo_name }}{% endraw %}"
-site_repo_root: "{% raw %}{{ repo_root }}{% endraw %}"
-site_repo_url: "{% raw %}{{ repo_url }}{% endraw %}"
+site_db_url: "psql:///{% raw %}{{ site_dir_name }}{% endraw %}"
+site_repo_url:
