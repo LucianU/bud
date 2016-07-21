@@ -5,6 +5,6 @@ postgres_user: "{{ site_app_user }}"
 
 site_app_user: vagrant
 # In development, the build dir is the same as the deployment dir
-site_build_dir: /vagrant
+site_build_path: /vagrant
 
 secure_deployment_user: "{{ site_app_user }}"
