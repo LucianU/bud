@@ -1,6 +1,8 @@
 ---
 ENV: development
 
+# We give the database the name of the project, but the user must be 'vagrant'
+postgres_db: "{{ site_dir_name }}"
 postgres_user: "{{ site_app_user }}"
 
 site_app_user: vagrant
