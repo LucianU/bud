@@ -1,6 +1,8 @@
 ---
 ENV: development
 
+postgres_user: "{{ site_app_user }}"
+
 site_app_user: vagrant
 # In development, the build dir is the same as the deployment dir
 site_build_dir: /vagrant
