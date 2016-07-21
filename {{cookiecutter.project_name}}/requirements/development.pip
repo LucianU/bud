@@ -2,6 +2,9 @@
 
 django-debug-toolbar
 
+# Ansible
+passlib==1.6.5
+
 # Testing
 coverage==4.1
 mock==2.0.0
