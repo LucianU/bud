@@ -9,7 +9,8 @@ production. To setup your environment:
 - install Vagrant
 - install Ansible
 - install the Ansible roles:
-    ansible-galaxy install ansible/roles/external.yml
+
+        ansible-galaxy install -r ansible/roles/external.yml
 
 Now you can run:
 - `vagrant up` to create the VM and install everything
