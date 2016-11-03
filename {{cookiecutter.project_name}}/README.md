@@ -1,13 +1,15 @@
 # {{ cookiecutter.project_name }}
 A Django site.
 
-
 ## Development
 Development is done in a Vagrant-managed VM. This ensures compatibility with
 production. To setup your environment:
 - install VirtualBox
 - install Vagrant
-- install Ansible
+- install Ansible and passlib:
+
+        pip install ansible passlib
+
 - install the Ansible roles:
 
         ansible-galaxy install -r ansible/roles/external.yml
