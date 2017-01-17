@@ -33,7 +33,7 @@ by adding your host to each target's inventory file. You find that in
 `ansible/inventory`. If this is the first deployment, you prepare the VM by
 running:
 
-    ansible-playbook ansible/secure -kK -u <user>
+    ansible-playbook ansible/secure.yml -kK -u <user>
 
 `<user>` should have superuser rights on the target machine. Now you can
 deploy by running:
