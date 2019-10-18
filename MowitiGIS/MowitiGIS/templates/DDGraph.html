@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+<head>
+    <title>django-chartjs line chart demo</title>
+
+</head>
+<body>
+<h4>Cotele apelor Dunarii</h4>
+<!--[if lte IE 8]>
+            <script src="{% static 'js/excanvas.js' %}"></script>
+        <![endif]-->
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+<canvas id="myChart" width="100%"></canvas>
+
+<script type="text/javascript">
+    $.get('{% url "grafic" %}', function (data) {
+        var ctx = $("#myChart").get(0).getContext("2d");
+        new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                borderColor: 'red',
+                tooltips: {
+                    mode: 'index',
+                    intersect: false ,
+                },
+                scales: {
+						yAxes: [{
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'left',
+							id: 'y-axis-1',
+						}, {
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'right',
+							id: 'y-axis-2',
+
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}],
+					}
+            }
+        });
+    });
+</script>
+</body>
+</html>

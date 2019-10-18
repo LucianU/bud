@@ -1,0 +1,4 @@
+include README.md
+recursive-include MowitiGIS/templates *
+recursive-include MowitiGIS/static_all *
+recursive-include MowitiGIS/media *

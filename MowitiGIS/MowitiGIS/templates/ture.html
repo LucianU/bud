@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina de ture</title>
+    {% comment %}  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>{% endcomment %}
+
+</head>
+<body>
+<select name="sort-ture form-control" id="sort-ture">
+    <option value="All">Toate turele</option>
+    <option value="2">2 zile</option>
+    <option value="3">3 zile</option>
+    <option value="4">4 zile</option>
+    <option value="5">5 zile</option>
+</select>
+<hr/>
+<section class="ture-list">
+    {% for t in ture %}
+        <article class="ture-item" data-category="{{ t.routes.count }}">
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="../media/{{ t.image }}" class="img-fluid"/>
+                    </div>
+                    <div class="col">
+                        <h3 class="display-10">{{ t.name }}</h3>
+                        <p class="lead">{{ t.description }}</p>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-sm">
+                        <p>Dificultate: {{ t.get_difficulty_display }}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p>{{ t.routes.count }} zile</p>
+                    </div>
+                    <div class="col-sm align-right">
+                        <a href="#" type="button" data-tura-id="{{ t.id }}" class="btn btn-primary harta">Harta</a>
+                    </div>
+                </div>
+                <ul class="list-group">
+
+                    {% for r in t.routes.all %}
+                        <li class="list-group-item"> {{ r.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </article>
+    {% endfor %}
+</section>
+{#  <script#}
+{#            src="https://code.jquery.com/jquery-3.4.1.min.js"#}
+{#            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="#}
+{#            crossorigin="anonymous"></script>#}
+<script>
+
+    //Filter News
+    $('select#sort-ture').change(function () {
+        var filter = $(this).val()
+        filterList(filter);
+    });
+
+    //News filter function
+    function filterList(value) {
+        var list = $(".ture-list .ture-item");
+        $(list).fadeOut("fast");
+        if (value == "All") {
+            $(".ture-list").find("article").each(function (i) {
+                $(this).delay(200).slideDown("fast");
+            });
+        } else {
+            //Notice this *=" <- This means that if the data-category contains multiple options, it will find them
+            //Ex: data-category="Cat1, Cat2"
+            $(".ture-list").find("article[data-category*=" + value + "]").each(function (i) {
+                $(this).delay(200).slideDown("fast");
+            });
+        }
+    }
+
+    var hues = ['#ff0009', '#00e728', '#ffea00', '#0047bd',
+        '#e700ff', '#00faff'];
+    var harta_tura;
+    $("a.harta").click(function (e) {
+        if (map.hasLayer(harta_tura)) {
+            map.removeLayer(harta_tura);
+        }
+        turaid = $(this).data("tura-id");
+
+        harta_tura = new L.GeoJSON.AJAX("rute_tura/" + turaid, {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.name.toString());
+                var item = hues[Math.floor(Math.random() * hues.length)];
+                console.log(item);
+                layer.setStyle({
+                    color: item,
+                    weight: 4
+                });
+
+                feature.properties.bounds_calculated = layer.getBounds();
+                console.log(feature.properties.bounds_calculated);
+                //map.fitBounds(layer.getBounds());
+            }
+
+        }).addTo(map);
+       // map.fitBounds(harta_tura.getBounds());
+        //map.addLayer(harta_tura);
+        console.log(harta_tura.getBounds());
+        //
+
+    })
+
+</script>
+
+</body>
+</html>

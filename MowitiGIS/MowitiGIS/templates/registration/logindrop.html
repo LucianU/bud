@@ -1,0 +1,43 @@
+<h4 class="text-center">Pentru a vedea optiunile profilului trebuie sa fii conectat.</h4>
+
+<div class="signin_content">
+    <form method="post" action="{% comment %}{% url accounts_login %}{% endcomment %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Adresa de e-mail</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="Introduce emailul aici">
+            <small id="emailHelp" class="form-text text-muted">Nu vom spune emailul tau nimanui.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Parola</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Parola">
+        </div>
+        <div class="form-check">
+            <div class="row justify-content-end">
+                <div class="col-sm-6"><input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Ține-mă minte</label>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary">Autentifică-te</button>
+                </div>
+            </div>
+            <input type="hidden" name="next" value="{% comment %}{{ request.path }}{% endcomment %}"/>
+        </div>
+    </form>
+    <div class="text-center">
+        <span class="text-center">Sau foloseste social media</span>
+        <div class="align-content-center">
+            <a href="{% comment %}{% url socialauth_begin 'facebook' %}?next={{ request.path }Î{% endcomment %}"
+               class="fbtnlnk"><img class="small" src="static/images/fbbtn.png" alt="facebook"/></a>
+            <a href="{% comment %}{% url socialauth_begin 'google-oauth2' %}?next={{ request.path }}{% endcomment %}"
+               class="gbtnlnk"><img class="small" src="/static/images/gbtn.png" alt="google"/></a>
+        </div>
+    </div>
+    <div class="text-center">
+        <br>
+        <hr>
+        <a class="signup" href="{% comment %}{% url accounts_register %}{% endcomment %}"> Inregistreaza-te pe Mowiti
+            Delta App</a>
+    </div>
+</div>
