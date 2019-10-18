@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 let
-  postgres = import /MowitiGIS/postgres.nix;
-  redis = import /MowitiGIS/redis.nix;
+  postgres = import /{{cookiecutter.project_slug}}/postgres.nix;
+  redis = import /{{cookiecutter.project_slug}}/redis.nix;
 in
 {
   imports = [
     /etc/nixos/vagrant.nix
   ];
 
-  fileSystems."/MowitiGIS" = {
+  fileSystems."/{{cookiecutter.project_slug}}" = {
     fsType = "vboxsf";
     device = "Temp";
     options = [ "rw" ];

@@ -1,17 +1,7 @@
 {
-    "project_name": null,
-    "deployment_user": null,
-    "ssh_private_key_path": "~/.ssh/id_rsa",
-    "_copy_without_render": [
-        "*ansible/development.yml",
-        "*ansible/production.yml",
-        "*ansible/staging.yml",
-        "*ansible/secure.yml",
-        "*ansible/host_vars",
-        "*ansible/inventory",
-        "*ansible/roles",
-        "*ansible/group_vars/development.yml",
-        "*ansible/group_vars/production.yml",
-        "*ansible/group_vars/staging.yml"
-    ]
+    "project_name": "My super project",
+    "project_slug": "{{cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim()}}",
+    "author_name": "Oak & Reed",
+    "app_name": "DDMap",
+    "GIS project - installs leaflet, gdal and geos (y/n)": "y"
 }

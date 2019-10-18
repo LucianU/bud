@@ -5,7 +5,7 @@ services:
     build:
       context: postgres
       dockerfile: Dockerfile
-    image: mowitigis_postgres
+    image: {{cookiecutter.project_slug}}_postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
   web:

@@ -26,7 +26,7 @@ for tr in table_rows[2:3]:
                                       password = "bogdan",
                                       host = "127.0.0.1",
                                       port = "5432",
-                                      database = "mowitiGIS")
+                                      database = "{{cookiecutter.project_slug}}")
         cursor = connection.cursor()
         postgres_insert_query = """INSERT INTO public."DDMap_cotedunare"(oras, km, nivelul_apei, variatia, temp_masurata, data_actualizare) VALUES (%s, %s, %s, %s, %s, %s);"""
         record_to_insert = (oras, km, nivelul_apei, variatia, temp_masurata, data_actualizare)

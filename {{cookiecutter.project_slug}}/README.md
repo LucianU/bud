@@ -1,5 +1,5 @@
 # About
-MowitiGIS is a project aimed to show you routes through the Danube Delta.
+{{cookiecutter.project_slug}} is a project aimed to show you routes through the Danube Delta.
 
 # Setup
 ## With Docker
@@ -18,6 +18,6 @@ MowitiGIS is a project aimed to show you routes through the Danube Delta.
 ](https://nixos.org/nix/download.html).
 - In the project, run `vagrant up` 
 - Once the machine is ready, login with `vagrant ssh`.
-- Go to the shared folder: `cd /mowitigis`.
+- Go to the shared folder: `cd /{{cookiecutter.project_slug}}`.
 - Enter the nix-shell. Run `nix-shell`.
 - Start the development server: `./runserver.sh`

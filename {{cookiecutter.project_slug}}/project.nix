@@ -4,12 +4,12 @@ with pkgs;
 with pyPackages;
 
 buildPythonPackage rec {
-  pname = "MowitiGIS";
+  pname = "{{cookiecutter.project_slug}}";
   version = "0.0.1";
 
   django = django_2_2;
 
-  src = ../MowitiGIS;
+  src = ../{{cookiecutter.project_slug}};
   doCheck = false;
   "django-leaflet" = buildPythonPackage {
     name = "django-leaflet-0.24.0";
