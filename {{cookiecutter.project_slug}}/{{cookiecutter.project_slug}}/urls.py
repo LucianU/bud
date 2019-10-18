@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('{{cookiecutter.project_slug}}.DDMap.urls')),
+    path('', include('{{cookiecutter.project_slug}}.{{cookiecutter.app_name}}.urls')),
 ]
 
 if settings.DEBUG:

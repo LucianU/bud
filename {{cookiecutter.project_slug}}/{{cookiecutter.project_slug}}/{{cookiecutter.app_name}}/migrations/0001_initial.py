@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=48)),
                 ('difficulty', models.SmallIntegerField(choices=[(0, 'easy'), (1, 'intermediate'), (2, 'hard')])),
                 ('privacy', models.SmallIntegerField(blank=True, choices=[(0, 'private'), (1, 'public')], default=1)),
-                ('routes', models.ManyToManyField(to='DDMap.Ruta')),
+                ('routes', models.ManyToManyField(to='{{cookiecutter.app_name}}.Ruta')),
             ],
             options={
                 'verbose_name_plural': 'Ture',
@@ -102,7 +102,7 @@ class Migration(migrations.Migration):
                 ('objectid', models.BigIntegerField()),
                 ('name', models.CharField(max_length=80)),
                 ('geom', django.contrib.gis.db.models.fields.MultiPolygonField(srid=4326)),
-                ('type_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='DDMap.TipSuprafata')),
+                ('type_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='{{cookiecutter.app_name}}.TipSuprafata')),
             ],
             options={
                 'verbose_name_plural': 'Suprafete',
@@ -117,7 +117,7 @@ class Migration(migrations.Migration):
                 ('image', models.ImageField(blank=True, null=True, upload_to='')),
                 ('date_created', models.DateField(default=datetime.date.today)),
                 ('date_modified', models.DateField(auto_now=True)),
-                ('poi_type', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='DDMap.TipPOI')),
+                ('poi_type', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='{{cookiecutter.app_name}}.TipPOI')),
             ],
             options={
                 'verbose_name_plural': 'Puncte de interes',

@@ -7,18 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('DDMap', '0002_remove_tipsuprafata_objectid'),
+        ('{{cookiecutter.app_name}}', '0002_remove_tipsuprafata_objectid'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='punct_de_interes',
             name='poi_type',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='puncte_de_interes', to='DDMap.TipPOI'),
+            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='puncte_de_interes', to='{{cookiecutter.app_name}}.TipPOI'),
         ),
         migrations.AlterField(
             model_name='suprafata',
             name='type_id',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='suprafete', to='DDMap.TipSuprafata'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='suprafete', to='{{cookiecutter.app_name}}.TipSuprafata'),
         ),
     ]

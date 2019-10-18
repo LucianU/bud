@@ -43,7 +43,7 @@ class Common(Configuration):
         'leaflet',
         'chartjs',
         'colorful',
-        '{{cookiecutter.project_slug}}.DDMap.apps.DdmapConfig',
+        '{{cookiecutter.project_slug}}.{{cookiecutter.app_name}}.apps.{{cookiecutter.app_name}}Config',
     ]
 
     MIDDLEWARE = [
@@ -145,7 +145,7 @@ class Common(Configuration):
         'DEFAULT_ZOOM': 10,
         'MAX_ZOOM':20,
         'MIN_ZOOM':5,
-        'ATTRIBUTION_PREFIX':'MOWITI DDMAP',
+        'ATTRIBUTION_PREFIX':'{{cookiecutter.project_slug.upper()}} {{cookiecutter.app_name.upper()}}',
         'RESET_VIEW': True
     }
 

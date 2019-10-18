@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('DDMap', '0006_auto_20190709_1451'),
+        ('{{cookiecutter.app_name}}', '0006_auto_20190709_1451'),
     ]
 
     operations = [
