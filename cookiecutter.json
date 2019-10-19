@@ -2,6 +2,6 @@
     "project_name": "My super project",
     "project_slug": "{{cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim()}}",
     "author_name": "Oak & Reed",
-    "app_name": "DDMap",
-    "GIS project - installs leaflet, gdal and geos (y/n)": "y"
+    "GIS_project": "y",
+    "app_name": "DDMap"
 }
