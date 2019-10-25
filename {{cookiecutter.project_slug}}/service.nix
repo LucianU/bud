@@ -9,8 +9,10 @@ let
     DJANGO_SETTINGS_MODULE="{{cookiecutter.project_slug}}.settings"
     DJANGO_CONFIGURATION="Dev"
     DJANGO_SECRET_KEY="*8e+^@x8rs%4jp1blufis93um_1a=k%(63p%6i*6o((6xr6^5@"
+    {% if cookiecutter.GIS_project == "y" %}
     DJANGO_GDAL_LIBRARY_PATH="${pkgs.gdal}/lib/libgdal.so"
     DJANGO_GEOS_LIBRARY_PATH="${pkgs.geos}/lib/libgeos_c.so"
+    {% endif %}
   '';
 in {
   options.services.{{cookiecutter.project_slug}}.enable = lib.mkEnableOption "{{cookiecutter.project_slug}}";

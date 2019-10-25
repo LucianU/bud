@@ -1,0 +1,66 @@
+{% raw %}
+{# HTML5 declaration #}
+{% load static %}
+<!doctype html>
+<html lang="en">
+{# Make modifiable head elements #}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block head_favicon %}
+    <link rel="icon" type="image/png"
+          href="{% static 'img/favicon.ico' %}">
+    {% endblock head_favicon %}
+    <title>{% block title %} Home {% endblock title %}</title>
+    {% block head_css %}
+        {% block head_css_site %}
+           <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+            <!-- Bootstrap core CSS -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+            <!-- Material Design Bootstrap -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+            <link href="{% static 'css/main_style.css' %}" rel="stylesheet" media="screen">
+        {% endblock head_css_site %}
+        {% block head_css_page %}{% endblock head_css_page %}
+        {% block head_css_app %}{% endblock head_css_app %}
+    {% endblock head_css %}
+    {% block script_section %}
+        {% block script_site %}
+            <!--    Javascript goes here-->
+            <script type="text/javascript" src="{% static 'js/main_script.js' %}" async></script>
+        {% endblock script_site %}
+        {% block script_app %}{% endblock script_app %}
+    {% endblock script_section %}
+</head>
+<body>
+<header>
+    {% include "header.html" %}
+</header>
+<main>
+    {% block main_section %}
+    <div class="container">
+        {% block content %}
+        {% endblock content%}
+    </div>
+    {% endblock main_section %}
+</main>
+<footer>
+    {% include "footer.html" %}
+</footer>
+
+{% block bootstrap_js %}
+<!-- Optional JavaScript -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+{% endblock bootstrap_js %}
+</body>
+</html>
+{% endraw %}

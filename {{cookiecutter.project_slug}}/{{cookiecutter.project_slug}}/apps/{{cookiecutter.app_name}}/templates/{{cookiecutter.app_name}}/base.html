@@ -1,0 +1,11 @@
+{% raw %}
+{% extends "base_generic.html" %}
+{% load static %}
+{% block head_css_app %}
+    <link href="{% static 'css/{% endraw %}{{cookiecutter.app_name}}{% raw %}_style.css' %}" rel="stylesheet" media="screen">
+{% endblock head_css_app %}
+{% block script_app %}
+    <script type="text/javascript" src="{% static 'js/{% endraw %}{{cookiecutter.app_name}}{% raw %}_script.js' %}" async></script>
+{% endblock script_app %}
+
+{% endraw %}

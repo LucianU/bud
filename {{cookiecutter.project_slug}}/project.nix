@@ -50,6 +50,7 @@ buildPythonPackage rec {
     propagatedBuildInputs = [ django django-leaflet django-configurations django-chartjs django-colorful gdal geos postgresql_11 postgresql_11.pkgs.postgis pillow psycopg2 pytz sqlparse ];
 
   {% else %}
+
     propagatedBuildInputs = [ django django-configurations postgresql_11 pillow psycopg2 pytz sqlparse ];
   {% endif %}
 
