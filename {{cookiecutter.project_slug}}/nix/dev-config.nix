@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
-  postgres = import /{{cookiecutter.project_slug}}/postgres.nix;
-  redis = import /{{cookiecutter.project_slug}}/redis.nix;
+  postgres = import /{{cookiecutter.project_slug}}/nix/services/postgres.nix;
+  redis = import /{{cookiecutter.project_slug}}/nix/services/redis.nix;
 in
 {
   imports = [

@@ -11,12 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import sys
-
 from configurations import Configuration, values
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -30,6 +26,51 @@ class Common(Configuration):
 
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
+
+    # Simple configuration which writes all logging from the django logger to a local file and prints Django's
+    # logging to the console
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'verbose': {
+                'format': '{levelname} {asctime} {filename} {funcName} {lineno} {module} {process:d} '
+                          '{thread:d} {message}',
+                'style': '{',
+            },
+            'simple': {
+                'format': '{levelname} {message}',
+                'style': '{',
+            },
+        },
+        'handlers': {
+            # 'file': {
+            #     'level': 'INFO',
+            #     'class': 'logging.FileHandler',
+            #     'filename': 'logs/mowitilog.log',
+            #     'formatter': 'verbose',
+            # },
+            'console': {
+                'level': 'DEBUG',
+                # 'filters': ['require_debug_true'],
+                'class': 'logging.StreamHandler',
+                'formatter': 'simple'
+            },
+            'systemd': {
+                'level': 'DEBUG',
+                'class': 'systemd.journal.JournalHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'django': {
+                'handlers': ['console', 'systemd'],
+                'level': 'INFO',
+                'propagate': True,
+            },
+        },
+    }
 
     ALLOWED_HOSTS = []
 
@@ -110,9 +151,9 @@ class Common(Configuration):
     DATABASES = {
             'default': {
                 'ENGINE': 'django.contrib.gis.db.backends.postgis',
-                'NAME': 'vagrant',
-                'USER': 'vagrant',
-                'HOST': '',
+                'NAME': values.Value('vagrant', environ_name="DATABASES_NAME"),
+                'USER': values.Value('vagrant', environ_name="DATABASES_USER"),
+                'HOST': values.Value('', environ_name="DATABASES_HOST"),
                 'PORT': '5432',
             }
         }
@@ -120,9 +161,9 @@ class Common(Configuration):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'vagrant',
-            'USER': 'vagrant',
-            'HOST': '',
+            'NAME': values.Value('vagrant', environ_name="DATABASES_NAME"),
+            'USER': values.Value('vagrant', environ_name="DATABASES_USER"),
+            'HOST': values.Value('', environ_name="DATABASES_HOST"),
             'PORT': '5432',
         }
     }

@@ -6,7 +6,7 @@ uses Vagrant and Ansible to provide this functionality. Because `bud` follows
 industry best practices.
 
 `bud` assumes the following stack:
-- Ubuntu
+- NixOS
 - PostgreSQL
 - Memcached
 - Nginx
@@ -34,8 +34,11 @@ through environment variables.
   You will receive the following prompts:
 
     - `project_name`: the name of the project directory
+    - `project_slug`: the name of the project subdirectory
     - `deployment_user`: the name of the user created on the remote host and used for deployment
     - `ssh_private_key_path`: the path to the private key you want to auth with
+    - `GIS_project`: y / N, if the project needs to support GIS
+    - `app_name`: the name of the main app (default is `blog`)
 
 - Go inside the project and run `vagrant up`
 - After the setup finishes, you can go to `http://localhost:8000` and you'll
