@@ -1,0 +1,4 @@
+include README.md
+recursive-include {{cookiecutter.project_slug}}/templates *
+recursive-include {{cookiecutter.project_slug}}/static_all *
+recursive-include {{cookiecutter.project_slug}}/media *

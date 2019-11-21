@@ -1,3 +1,0 @@
-#!/bin/bash
-
-/var/local/virtualenvs/{{ cookiecutter.project_name }}/bin/python manage.py runserver 0.0.0.0:8000
