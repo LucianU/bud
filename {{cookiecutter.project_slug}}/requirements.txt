@@ -1,9 +1,0 @@
-django==2.2.*
-django-chartjs==1.5.0
-django-colorful==1.3
-django-configurations==2.1
-django-leaflet==0.24.0
-pillow
-psycopg2==2.7.*
-pytz
-sqlparse==0.2.*
