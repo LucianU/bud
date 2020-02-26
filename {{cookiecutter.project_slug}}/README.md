@@ -2,7 +2,9 @@
 Describe the project
 
 # Setup
-* Install `docker` and `docker-compose`
+* Install `docker` and `docker-compose`. On Mac, you can do that with:
+  `brew cask install docker`
+
 * To start the development environment, run
   `./scripts/start-local`
 
