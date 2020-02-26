@@ -5,11 +5,11 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: ./docker/local/Dockerfile
+      dockerfile: ./docker/development/Dockerfile
     image: {{cookiecutter.project_slug}}_web_devel
     command: /start.sh
     env_file:
-      - env_files/local/.env
+      - env_files/development/.env
     volumes:
       - .:/app
     ports:

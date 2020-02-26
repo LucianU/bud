@@ -6,17 +6,17 @@ Describe the project
   `brew cask install docker`
 
 * To start the development environment, run
-  `./scripts/start-local`
+  `./scripts/start-development`
 
 * To stop the development environment, run in a different terminal:
-  `./scripts/stop-local`
+  `./scripts/stop-development`
 
 # Functionality
 ## Authentication
 Provided by `django-allauth`
 
 ## Static files
-Disabled by default. To enable support for static files, set in `env_files/local/.env`
+Disabled by default. To enable support for static files, set in `env_files/development/.env`
 `DJANGO_ENABLE_STATIC_FILES=True`.
 
 Using `whitenoise` to  serve static files.

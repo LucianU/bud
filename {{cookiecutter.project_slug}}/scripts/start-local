@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-docker-compose -f ./local.yml up --build
