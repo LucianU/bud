@@ -1,0 +1,13 @@
+django==3.0.3
+django-allauth==0.41.0
+django-anymail==7.0.0
+django-configurations==2.2
+django-redis==4.11.0
+djangorestframework==3.11.0
+
+argon2-cffi==19.2.0
+brotli==1.0.7 # Used by whitenoise for compression
+pillow==7.0.0
+psycopg2-binary==2.8.4
+pytz==2019.3
+whitenoise==5.0.1

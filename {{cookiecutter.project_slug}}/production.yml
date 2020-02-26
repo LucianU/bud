@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  traefik:
+    build:
+      context: .
+      dockerfile: ./docker/production/traefik/Dockerfile
+    image: {{cookiecutter.project_slug}}_traefik
+    # This ensures that Traefik persists the certificate across container restarts
+    volumes:
+      - traefik:/etc/traefik/acme
+    depends_on:
+      - web
+    ports:
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/production/django/Dockerfile
+    image: {{cookiecutter.project_slug}}_web_prod
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .envs/production/.env
+    command: /start.sh
+
+  redis:
+    image: redis:5.0
+
+  db:
+    image: postgres:11.3
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+  traefik:

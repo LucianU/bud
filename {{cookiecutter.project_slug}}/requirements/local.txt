@@ -1,0 +1,15 @@
+-r ./common.txt
+
+# Code Quality
+black==19.10b0
+flake8==3.7.9
+mypy==0.761
+pre-commit==2.1.0
+
+# Tests
+coverage==5.0.3
+pytest==5.3.5
+
+# Django-specific
+django-coverage-plugin==1.8.0
+pytest-django==3.8.0

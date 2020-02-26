@@ -1,0 +1,5 @@
+-r ./common.txt
+
+django-storages==1.9.1
+mailgun==0.1.1
+gunicorn==20.0.4
