@@ -2,6 +2,4 @@
     "project_name": "My super project",
     "project_slug": "{{cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim()}}",
     "author_name": "Oak & Reed",
-    "GIS_project": "n",
-    "app_name": "blog"
 }
