@@ -18,9 +18,6 @@ RUN apt-get update \
 COPY ./requirements /requirements
 RUN pip install -r /requirements/development.txt
 
-COPY ./docker/production/django/entrypoint.sh /entrypoint.sh
-RUN sed -i 's/\r$//g' /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 COPY ./docker/development/start.sh /start.sh
 RUN chmod +x /start.sh
 
