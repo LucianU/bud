@@ -22,5 +22,3 @@ COPY ./docker/development/start.sh /start.sh
 RUN chmod +x /start.sh
 
 WORKDIR /app
-
-ENTRYPOINT ["/entrypoint.sh"]
