@@ -23,3 +23,8 @@ Using `whitenoise` to  serve static files.
 
 ## Emails
 Managed with `django-anymail`.
+
+# To Do
+* Add `browser-app` dir under `templates` and put `index.html` in there.
+* Document common `manage.py` operations like `makemigrations` and `startapp`.
+* Document `env_files`.
