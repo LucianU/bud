@@ -117,7 +117,6 @@ class Common(Configuration):
     }
 
     # EMAIL
-    EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
     DEFAULT_FROM_EMAIL = "lucian.ursu@gmail.com"
     SERVER_EMAIL = "lucian.ursu@gmail.com"
 
@@ -134,6 +133,11 @@ class Dev(Common):
         "localhost"
     ]
 
+    # EMAIL
+    EMAIL_HOST = "mailhog"
+    EMAIL_PORT = 1025
+
+    # Static Files
     if values.BooleanValue(False, environ_name="ENABLE_STATIC_FILES"):
         INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + Common.INSTALLED_APPS
 
@@ -155,6 +159,8 @@ class Prod(Common):
         }
     }
 
+    # EMAIL
+    EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
     ANYMAIL = {
         "MAILGUN_API_KEY": values.Value(
             "", environ_name="MAILGUN_API_KEY", environ_prefix=None
