@@ -11,6 +11,9 @@ Describe the project
 * To stop the development environment, run in a different terminal:
   `./scripts/stop-dev-env`
 
+* To run commands with `manage.py`:
+  `./scripts/manage`
+
 # Functionality
 ## Authentication
 Provided by `django-allauth`
@@ -25,6 +28,5 @@ Using `whitenoise` to  serve static files.
 Managed with `django-anymail`.
 
 # To Do
-* Add `browser-app` dir under `templates` and put `index.html` in there.
 * Document common `manage.py` operations like `makemigrations` and `startapp`.
 * Document `env_files`.
