@@ -7,7 +7,7 @@ Another Django project template. Heavily inspired by Cookiecutter's Django templ
 - uses `mypy` for type-checking
 - uses `black` to format the code
 - uses `EditorConfig` for consistent editing experience
-- uses `django-configurations` to follow the 12-factor-app guideliness. There is a single settings.py
+- uses `django-configurations` to follow the 12-factor-app guidelines. There is a single settings.py
 and you can override settings with environment variables.
 - uses PostgreSQL as the database
 - uses Redis for caching
