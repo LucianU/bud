@@ -6,7 +6,7 @@ django-redis==4.11.0
 djangorestframework==3.15.2
 
 argon2-cffi==19.2.0
-brotli==1.0.7 # Used by whitenoise for compression
+brotli==1.0.8 # Used by whitenoise for compression
 pillow==10.3.0
 psycopg2-binary==2.8.4
 pytz==2019.3
