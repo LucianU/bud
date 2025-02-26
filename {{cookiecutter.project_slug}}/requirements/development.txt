@@ -1,7 +1,7 @@
 -r ./common.txt
 
 # Code Quality
-black==19.10b0
+black==24.3.0
 flake8==3.7.9
 mypy==0.761
 pre-commit==2.1.0
