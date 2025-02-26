@@ -3,7 +3,7 @@ django-allauth==0.41.0
 django-anymail==7.0.0
 django-configurations==2.2
 django-redis==4.11.0
-djangorestframework==3.11.2
+djangorestframework==3.15.2
 
 argon2-cffi==19.2.0
 brotli==1.0.7 # Used by whitenoise for compression
