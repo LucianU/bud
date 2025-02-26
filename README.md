@@ -1,6 +1,3 @@
-# Archived
-Since I don't use Django much, I don't need a starter project.
-
 # What is this?
 Another Django project template. Heavily inspired by Cookiecutter's Django template.
 
