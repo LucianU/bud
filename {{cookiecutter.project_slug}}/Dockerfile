@@ -14,11 +14,16 @@ RUN apt-get update \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
-# Requirements are installed here to ensure they will be cached.
-COPY ./requirements /requirements
-RUN pip install -r /requirements/development.txt
+# Install Poetry
+RUN pip install poetry
 
-COPY ./docker/development/start.sh /start.sh
+# Copy only pyproject.toml and poetry.lock first (for better caching)
+COPY pyproject.toml poetry.lock ./
+
+# Install dependencies (use --no-root to skip installing the project itself)
+RUN poetry install --no-root --with dev
+
+COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
 
 WORKDIR /app
