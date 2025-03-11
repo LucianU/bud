@@ -1,3 +1,43 @@
+[tool.poetry]
+name = "{{cookiecutter.project_slug}}"
+version = "0.1.0"
+description = "A Django project managed with Poetry"
+authors = ["Lucian Ursu <lucian.ursu@gmail.com>"]
+packages = [{include = "{{cookiecutter.project_slug}}"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.2"
+psycopg2-binary = "^2.8"
+gunicorn = "^21.2"
+django-allauth = "0.41.0"
+django-anymail = "7.0.0"
+django-configurations = "2.2"
+django-redis = "4.11.0"
+djangorestframework = "3.15.2"
+argon2-cffi = "19.2.0"
+pillow = "10.3.0"
+pytz = "2019.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.0"
+flake8 = "^7.0"
+pytest = "^8.1"
+pytest-django = "^4.8"
+mypy = "0.761"
+pre-commit = "2.1.0"
+django-debug-toolbar = "^4.2"
+ipython = "^8.10"
+
+[tool.poetry.group.prod.dependencies]
+django-storages = "1.9.1"
+mailgun = "0.1.1"
+whitenoise = "^6.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 line-length = 88
 target-version = ['py37']
