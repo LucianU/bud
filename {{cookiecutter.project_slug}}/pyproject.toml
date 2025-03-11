@@ -7,7 +7,7 @@ packages = [{include = "{{cookiecutter.project_slug}}"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.2"
+Django = "^4.2.20"
 psycopg2-binary = "^2.8"
 gunicorn = "^21.2"
 django-allauth = "0.41.0"
