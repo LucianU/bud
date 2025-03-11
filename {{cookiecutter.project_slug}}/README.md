@@ -6,10 +6,10 @@ Describe the project
   `brew cask install docker`
 
 * To start the development environment, run
-  `./scripts/start-dev-env`
+  `./bin/start-dev-env`
 
 * To stop the development environment, run in a different terminal:
-  `./scripts/stop-dev-env`
+  `./bin/stop-dev-env`
 
 # Functionality
 ## Authentication
