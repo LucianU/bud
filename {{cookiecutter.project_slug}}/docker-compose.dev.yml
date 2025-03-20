@@ -9,6 +9,7 @@ services:
     image: {{cookiecutter.project_slug}}_web_devel
     command: /start.sh
     env_file:
+      - .env
       - env_files/development/.env
     volumes:
       - .:/app
